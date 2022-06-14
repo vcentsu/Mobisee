@@ -1,5 +1,5 @@
 //
-//  PlanJourneyController.swift
+//  PlanJourneyViewController.swift
 //  Mobisee
 //
 //  Created by Vincentius Sutanto on 14/06/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlanJourneyController: UIViewController {
+class PlanJourneyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

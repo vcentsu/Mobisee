@@ -13,7 +13,7 @@
 		D3507C4E2856593A007D0F61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3507C4C2856593A007D0F61 /* Main.storyboard */; };
 		D3507C502856593C007D0F61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3507C4F2856593C007D0F61 /* Assets.xcassets */; };
 		D3507C532856593C007D0F61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3507C512856593C007D0F61 /* LaunchScreen.storyboard */; };
-		D3D431D72858865700D78987 /* PlanJourneyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D431D62858865700D78987 /* PlanJourneyController.swift */; };
+		D3D431D72858865700D78987 /* PlanJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D431D62858865700D78987 /* PlanJourneyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		D3507C4F2856593C007D0F61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3507C522856593C007D0F61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3507C542856593C007D0F61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3D431D62858865700D78987 /* PlanJourneyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanJourneyController.swift; sourceTree = "<group>"; };
+		D3D431D62858865700D78987 /* PlanJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanJourneyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,6 @@
 				D3507C5B28565AC9007D0F61 /* View */,
 				D3507C5C28565AD1007D0F61 /* Controller */,
 				D3507C4F2856593C007D0F61 /* Assets.xcassets */,
-				D3507C512856593C007D0F61 /* LaunchScreen.storyboard */,
 				D3507C542856593C007D0F61 /* Info.plist */,
 			);
 			path = Mobisee;
@@ -80,6 +79,7 @@
 		D3507C5B28565AC9007D0F61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D3507C512856593C007D0F61 /* LaunchScreen.storyboard */,
 				D3507C4C2856593A007D0F61 /* Main.storyboard */,
 			);
 			path = View;
@@ -89,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				D3507C4A2856593A007D0F61 /* ViewController.swift */,
-				D3D431D62858865700D78987 /* PlanJourneyController.swift */,
+				D3D431D62858865700D78987 /* PlanJourneyViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -166,7 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3507C4B2856593A007D0F61 /* ViewController.swift in Sources */,
-				D3D431D72858865700D78987 /* PlanJourneyController.swift in Sources */,
+				D3D431D72858865700D78987 /* PlanJourneyViewController.swift in Sources */,
 				D3507C472856593A007D0F61 /* AppDelegate.swift in Sources */,
 				D3507C492856593A007D0F61 /* SceneDelegate.swift in Sources */,
 			);
