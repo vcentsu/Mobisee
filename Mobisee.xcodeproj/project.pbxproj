@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6B785C9252A72CB812FB307 /* Pods_Mobisee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09196B35D3AB3B187F39E902 /* Pods_Mobisee.framework */; };
 		D3507C472856593A007D0F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C462856593A007D0F61 /* AppDelegate.swift */; };
 		D3507C492856593A007D0F61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C482856593A007D0F61 /* SceneDelegate.swift */; };
 		D3507C4B2856593A007D0F61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C4A2856593A007D0F61 /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09196B35D3AB3B187F39E902 /* Pods_Mobisee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobisee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16A0EC518E7AF43C7771E103 /* Pods-Mobisee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.release.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.release.xcconfig"; sourceTree = "<group>"; };
+		394378878DDF0FF83364084E /* Pods-Mobisee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.debug.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.debug.xcconfig"; sourceTree = "<group>"; };
 		D3507C432856593A007D0F61 /* Mobisee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobisee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3507C462856593A007D0F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3507C482856593A007D0F61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6B785C9252A72CB812FB307 /* Pods_Mobisee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BB429B5FF292688D49A2864 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09196B35D3AB3B187F39E902 /* Pods_Mobisee.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3363084DFB847E4F948B776A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				394378878DDF0FF83364084E /* Pods-Mobisee.debug.xcconfig */,
+				16A0EC518E7AF43C7771E103 /* Pods-Mobisee.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D3507C3A28565939007D0F61 = {
 			isa = PBXGroup;
 			children = (
 				D3507C452856593A007D0F61 /* Mobisee */,
 				D3507C442856593A007D0F61 /* Products */,
+				3363084DFB847E4F948B776A /* Pods */,
+				2BB429B5FF292688D49A2864 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,9 +122,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3507C572856593C007D0F61 /* Build configuration list for PBXNativeTarget "Mobisee" */;
 			buildPhases = (
+				A847CE4F981CA9B1DAB826BA /* [CP] Check Pods Manifest.lock */,
 				D3507C3F2856593A007D0F61 /* Sources */,
 				D3507C402856593A007D0F61 /* Frameworks */,
 				D3507C412856593A007D0F61 /* Resources */,
+				DF4043F269F067CB76B108FF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,6 +182,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A847CE4F981CA9B1DAB826BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mobisee-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF4043F269F067CB76B108FF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mobisee/Pods-Mobisee-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mobisee/Pods-Mobisee-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mobisee/Pods-Mobisee-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D3507C3F2856593A007D0F61 /* Sources */ = {
@@ -226,6 +294,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -240,7 +309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -286,6 +355,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -294,9 +365,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -306,12 +378,14 @@
 		};
 		D3507C582856593C007D0F61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 394378878DDF0FF83364084E /* Pods-Mobisee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57324CTP27;
+				DEVELOPMENT_TEAM = 2RNK62DS26;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mobisee/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -334,12 +408,14 @@
 		};
 		D3507C592856593C007D0F61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16A0EC518E7AF43C7771E103 /* Pods-Mobisee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57324CTP27;
+				DEVELOPMENT_TEAM = 2RNK62DS26;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mobisee/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -352,6 +428,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.centsu.Mobisee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
