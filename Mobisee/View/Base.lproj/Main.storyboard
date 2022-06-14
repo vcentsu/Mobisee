@@ -12,59 +12,22 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mobisee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="makes your mobility seamless" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJi-Cu-1Kg">
-                                <rect key="frame" x="98.5" y="842" width="217" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="Gr2-46-qMX"/>
-                                    <constraint firstAttribute="width" constant="217" id="GwB-E0-MqO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3x3 icon" translatesAutoresizingMaskIntoConstraints="NO" id="IFc-Q1-8Jt">
-                                <rect key="frame" x="107" y="353" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="M6k-Ma-Vgc"/>
-                                    <constraint firstAttribute="height" constant="200" id="aAd-Xz-Yl0"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobisee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMl-Gz-dT8">
-                                <rect key="frame" x="107" y="518.5" width="200" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="2QY-QT-U8P"/>
-                                    <constraint firstAttribute="height" constant="43" id="N3F-vf-tik"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
-                                <color key="textColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="AccentColor"/>
-                        <constraints>
-                            <constraint firstItem="IFc-Q1-8Jt" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0Cu-FB-boD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BJi-Cu-1Kg" secondAttribute="bottom" id="6QI-qe-sf5"/>
-                            <constraint firstItem="IFc-Q1-8Jt" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="9xD-la-qRq"/>
-                            <constraint firstItem="AMl-Gz-dT8" firstAttribute="centerX" secondItem="IFc-Q1-8Jt" secondAttribute="centerX" id="TO5-Ag-zTf"/>
-                            <constraint firstItem="BJi-Cu-1Kg" firstAttribute="centerX" secondItem="AMl-Gz-dT8" secondAttribute="centerX" id="WeZ-XL-DJy"/>
-                            <constraint firstItem="AMl-Gz-dT8" firstAttribute="firstBaseline" secondItem="IFc-Q1-8Jt" secondAttribute="baseline" id="juy-SL-zak"/>
-                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-33.644859813084111" y="81.641468682505405"/>
         </scene>
-        <!--Plan Journey Controller-->
+        <!--Plan Journey View Controller-->
         <scene sceneID="3yc-bT-cOh">
             <objects>
-                <viewController id="4Eu-Rb-PCe" customClass="PlanJourneyController" customModule="Mobisee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlanJourneyID" id="4Eu-Rb-PCe" customClass="PlanJourneyViewController" customModule="Mobisee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9i1-7r-8gK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,7 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3x3 icon" width="630" height="630"/>
         <namedColor name="AccentColor">
             <color red="0.35686274509803922" green="0.61568627450980395" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
