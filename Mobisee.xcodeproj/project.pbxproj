@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30E4697D2859A05E00C435CA /* ResultSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */; };
+		30E4697F2859E2BD00C435CA /* GooglePlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */; };
 		B6B785C9252A72CB812FB307 /* Pods_Mobisee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09196B35D3AB3B187F39E902 /* Pods_Mobisee.framework */; };
 		D3507C472856593A007D0F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C462856593A007D0F61 /* AppDelegate.swift */; };
 		D3507C492856593A007D0F61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C482856593A007D0F61 /* SceneDelegate.swift */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		09196B35D3AB3B187F39E902 /* Pods_Mobisee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobisee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16A0EC518E7AF43C7771E103 /* Pods-Mobisee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.release.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.release.xcconfig"; sourceTree = "<group>"; };
+		30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSearchViewController.swift; sourceTree = "<group>"; };
+		30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GooglePlacesManager.swift; path = Mobisee/View/GooglePlacesManager.swift; sourceTree = SOURCE_ROOT; };
 		394378878DDF0FF83364084E /* Pods-Mobisee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.debug.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.debug.xcconfig"; sourceTree = "<group>"; };
 		D3507C432856593A007D0F61 /* Mobisee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobisee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3507C462856593A007D0F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 		D3507C5A28565ABB007D0F61 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 		D3507C5C28565AD1007D0F61 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */,
 				D3507C4A2856593A007D0F61 /* ViewController.swift */,
 			);
 			path = Controller;
@@ -232,7 +238,9 @@
 			files = (
 				D3507C4B2856593A007D0F61 /* ViewController.swift in Sources */,
 				D3507C472856593A007D0F61 /* AppDelegate.swift in Sources */,
+				30E4697D2859A05E00C435CA /* ResultSearchViewController.swift in Sources */,
 				D3507C492856593A007D0F61 /* SceneDelegate.swift in Sources */,
+				30E4697F2859E2BD00C435CA /* GooglePlacesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +393,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2RNK62DS26;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mobisee/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -393,6 +400,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -415,7 +423,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2RNK62DS26;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mobisee/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -423,6 +430,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
