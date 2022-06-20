@@ -27,6 +27,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UISearchResul
         searchVC.searchResultsUpdater = self
         searchVC.searchBar.backgroundColor = .secondarySystemBackground
         navigationItem.searchController = searchVC
+
         
     }
     
