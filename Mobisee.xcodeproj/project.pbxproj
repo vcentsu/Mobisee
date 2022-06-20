@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30E4697D2859A05E00C435CA /* ResultSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */; };
+		30E4697F2859E2BD00C435CA /* GooglePlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */; };
+		CB60440347612D60E4196D26 /* Pods_Mobisee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9B930C01E7ED1D1AA871CB /* Pods_Mobisee.framework */; };
 		D3507C472856593A007D0F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C462856593A007D0F61 /* AppDelegate.swift */; };
 		D3507C492856593A007D0F61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C482856593A007D0F61 /* SceneDelegate.swift */; };
 		D3507C4B2856593A007D0F61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C4A2856593A007D0F61 /* ViewController.swift */; };
@@ -14,10 +17,13 @@
 		D3507C502856593C007D0F61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3507C4F2856593C007D0F61 /* Assets.xcassets */; };
 		D3507C532856593C007D0F61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3507C512856593C007D0F61 /* LaunchScreen.storyboard */; };
 		D3D431D72858865700D78987 /* PlanJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D431D62858865700D78987 /* PlanJourneyViewController.swift */; };
-		D3D431D9285B125700D78987 /* StartingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D431D8285B125700D78987 /* StartingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A9B930C01E7ED1D1AA871CB /* Pods_Mobisee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobisee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSearchViewController.swift; sourceTree = "<group>"; };
+		30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GooglePlacesManager.swift; path = Mobisee/View/GooglePlacesManager.swift; sourceTree = SOURCE_ROOT; };
+		5DEB5B873E9D3AA8CDBD65AF /* Pods-Mobisee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.release.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.release.xcconfig"; sourceTree = "<group>"; };
 		D3507C432856593A007D0F61 /* Mobisee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobisee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3507C462856593A007D0F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3507C482856593A007D0F61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +34,7 @@
 		D3507C542856593C007D0F61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3D431D62858865700D78987 /* PlanJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanJourneyViewController.swift; sourceTree = "<group>"; };
 		D3D431D8285B125700D78987 /* StartingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingViewController.swift; sourceTree = "<group>"; };
+		FDB0555E60A06A320CEFDA4D /* Pods-Mobisee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.debug.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +42,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB60440347612D60E4196D26 /* Pods_Mobisee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3363084DFB847E4F948B776A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FDB0555E60A06A320CEFDA4D /* Pods-Mobisee.debug.xcconfig */,
+				5DEB5B873E9D3AA8CDBD65AF /* Pods-Mobisee.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8C28397524026BD1D8491BE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A9B930C01E7ED1D1AA871CB /* Pods_Mobisee.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D3507C3A28565939007D0F61 = {
 			isa = PBXGroup;
 			children = (
 				D3507C452856593A007D0F61 /* Mobisee */,
 				D3507C442856593A007D0F61 /* Products */,
+				3363084DFB847E4F948B776A /* Pods */,
+				8C28397524026BD1D8491BE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +101,7 @@
 		D3507C5A28565ABB007D0F61 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -90,6 +118,7 @@
 		D3507C5C28565AD1007D0F61 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */,
 				D3507C4A2856593A007D0F61 /* ViewController.swift */,
 				D3D431D8285B125700D78987 /* StartingViewController.swift */,
 				D3D431D62858865700D78987 /* PlanJourneyViewController.swift */,
@@ -104,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3507C572856593C007D0F61 /* Build configuration list for PBXNativeTarget "Mobisee" */;
 			buildPhases = (
+				01E84C312A5E3C348F8A0DDD /* [CP] Check Pods Manifest.lock */,
 				D3507C3F2856593A007D0F61 /* Sources */,
 				D3507C402856593A007D0F61 /* Frameworks */,
 				D3507C412856593A007D0F61 /* Resources */,
+				1B076393E0C5E8320E6EBB11 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,6 +194,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01E84C312A5E3C348F8A0DDD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mobisee-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1B076393E0C5E8320E6EBB11 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mobisee/Pods-Mobisee-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mobisee/Pods-Mobisee-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mobisee/Pods-Mobisee-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D3507C3F2856593A007D0F61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -171,8 +244,9 @@
 				D3507C4B2856593A007D0F61 /* ViewController.swift in Sources */,
 				D3D431D72858865700D78987 /* PlanJourneyViewController.swift in Sources */,
 				D3507C472856593A007D0F61 /* AppDelegate.swift in Sources */,
+				30E4697D2859A05E00C435CA /* ResultSearchViewController.swift in Sources */,
 				D3507C492856593A007D0F61 /* SceneDelegate.swift in Sources */,
-				D3D431D9285B125700D78987 /* StartingViewController.swift in Sources */,
+				30E4697F2859E2BD00C435CA /* GooglePlacesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +308,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -248,7 +323,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -294,6 +369,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -302,9 +379,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -314,12 +392,14 @@
 		};
 		D3507C582856593C007D0F61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDB0555E60A06A320CEFDA4D /* Pods-Mobisee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57324CTP27;
+				DEVELOPMENT_TEAM = 2RNK62DS26;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mobisee/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -327,6 +407,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,12 +423,14 @@
 		};
 		D3507C592856593C007D0F61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DEB5B873E9D3AA8CDBD65AF /* Pods-Mobisee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57324CTP27;
+				DEVELOPMENT_TEAM = 2RNK62DS26;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mobisee/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -355,11 +438,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.centsu.Mobisee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
