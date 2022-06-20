@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		30E4697D2859A05E00C435CA /* ResultSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */; };
 		30E4697F2859E2BD00C435CA /* GooglePlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */; };
-		B6B785C9252A72CB812FB307 /* Pods_Mobisee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09196B35D3AB3B187F39E902 /* Pods_Mobisee.framework */; };
+		CB60440347612D60E4196D26 /* Pods_Mobisee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9B930C01E7ED1D1AA871CB /* Pods_Mobisee.framework */; };
 		D3507C472856593A007D0F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C462856593A007D0F61 /* AppDelegate.swift */; };
 		D3507C492856593A007D0F61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C482856593A007D0F61 /* SceneDelegate.swift */; };
 		D3507C4B2856593A007D0F61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C4A2856593A007D0F61 /* ViewController.swift */; };
@@ -17,15 +17,13 @@
 		D3507C502856593C007D0F61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3507C4F2856593C007D0F61 /* Assets.xcassets */; };
 		D3507C532856593C007D0F61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3507C512856593C007D0F61 /* LaunchScreen.storyboard */; };
 		D3D431D72858865700D78987 /* PlanJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D431D62858865700D78987 /* PlanJourneyViewController.swift */; };
-		D3D431D9285B125700D78987 /* StartingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D431D8285B125700D78987 /* StartingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		09196B35D3AB3B187F39E902 /* Pods_Mobisee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobisee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		16A0EC518E7AF43C7771E103 /* Pods-Mobisee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.release.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.release.xcconfig"; sourceTree = "<group>"; };
+		1A9B930C01E7ED1D1AA871CB /* Pods_Mobisee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobisee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSearchViewController.swift; sourceTree = "<group>"; };
 		30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GooglePlacesManager.swift; path = Mobisee/View/GooglePlacesManager.swift; sourceTree = SOURCE_ROOT; };
-		394378878DDF0FF83364084E /* Pods-Mobisee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.debug.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.debug.xcconfig"; sourceTree = "<group>"; };
+		5DEB5B873E9D3AA8CDBD65AF /* Pods-Mobisee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.release.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.release.xcconfig"; sourceTree = "<group>"; };
 		D3507C432856593A007D0F61 /* Mobisee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobisee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3507C462856593A007D0F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3507C482856593A007D0F61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +34,7 @@
 		D3507C542856593C007D0F61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3D431D62858865700D78987 /* PlanJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanJourneyViewController.swift; sourceTree = "<group>"; };
 		D3D431D8285B125700D78987 /* StartingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingViewController.swift; sourceTree = "<group>"; };
+		FDB0555E60A06A320CEFDA4D /* Pods-Mobisee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.debug.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,28 +42,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6B785C9252A72CB812FB307 /* Pods_Mobisee.framework in Frameworks */,
+				CB60440347612D60E4196D26 /* Pods_Mobisee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2BB429B5FF292688D49A2864 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				09196B35D3AB3B187F39E902 /* Pods_Mobisee.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		3363084DFB847E4F948B776A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				394378878DDF0FF83364084E /* Pods-Mobisee.debug.xcconfig */,
-				16A0EC518E7AF43C7771E103 /* Pods-Mobisee.release.xcconfig */,
+				FDB0555E60A06A320CEFDA4D /* Pods-Mobisee.debug.xcconfig */,
+				5DEB5B873E9D3AA8CDBD65AF /* Pods-Mobisee.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8C28397524026BD1D8491BE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A9B930C01E7ED1D1AA871CB /* Pods_Mobisee.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D3507C3A28565939007D0F61 = {
@@ -73,7 +72,7 @@
 				D3507C452856593A007D0F61 /* Mobisee */,
 				D3507C442856593A007D0F61 /* Products */,
 				3363084DFB847E4F948B776A /* Pods */,
-				2BB429B5FF292688D49A2864 /* Frameworks */,
+				8C28397524026BD1D8491BE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,11 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3507C572856593C007D0F61 /* Build configuration list for PBXNativeTarget "Mobisee" */;
 			buildPhases = (
-				A847CE4F981CA9B1DAB826BA /* [CP] Check Pods Manifest.lock */,
+				01E84C312A5E3C348F8A0DDD /* [CP] Check Pods Manifest.lock */,
 				D3507C3F2856593A007D0F61 /* Sources */,
 				D3507C402856593A007D0F61 /* Frameworks */,
 				D3507C412856593A007D0F61 /* Resources */,
-				DF4043F269F067CB76B108FF /* [CP] Copy Pods Resources */,
+				1B076393E0C5E8320E6EBB11 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,7 +195,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A847CE4F981CA9B1DAB826BA /* [CP] Check Pods Manifest.lock */ = {
+		01E84C312A5E3C348F8A0DDD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -218,7 +217,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DF4043F269F067CB76B108FF /* [CP] Copy Pods Resources */ = {
+		1B076393E0C5E8320E6EBB11 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -247,9 +246,7 @@
 				D3507C472856593A007D0F61 /* AppDelegate.swift in Sources */,
 				30E4697D2859A05E00C435CA /* ResultSearchViewController.swift in Sources */,
 				D3507C492856593A007D0F61 /* SceneDelegate.swift in Sources */,
-
 				30E4697F2859E2BD00C435CA /* GooglePlacesManager.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +308,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -373,7 +370,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				EXCLUDED_ARCHS = "";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -395,13 +392,14 @@
 		};
 		D3507C582856593C007D0F61 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 394378878DDF0FF83364084E /* Pods-Mobisee.debug.xcconfig */;
+			baseConfigurationReference = FDB0555E60A06A320CEFDA4D /* Pods-Mobisee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2RNK62DS26;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mobisee/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -425,13 +423,14 @@
 		};
 		D3507C592856593C007D0F61 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16A0EC518E7AF43C7771E103 /* Pods-Mobisee.release.xcconfig */;
+			baseConfigurationReference = 5DEB5B873E9D3AA8CDBD65AF /* Pods-Mobisee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2RNK62DS26;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mobisee/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
