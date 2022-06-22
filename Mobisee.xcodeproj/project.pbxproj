@@ -10,12 +10,14 @@
 		30E4697D2859A05E00C435CA /* ResultSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */; };
 		30E4697F2859E2BD00C435CA /* GooglePlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */; };
 		CB60440347612D60E4196D26 /* Pods_Mobisee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9B930C01E7ED1D1AA871CB /* Pods_Mobisee.framework */; };
+		D30FAD2128631A3C00AC5DFF /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30FAD2028631A3C00AC5DFF /* StartViewController.swift */; };
 		D3507C472856593A007D0F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C462856593A007D0F61 /* AppDelegate.swift */; };
 		D3507C492856593A007D0F61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C482856593A007D0F61 /* SceneDelegate.swift */; };
 		D3507C4B2856593A007D0F61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3507C4A2856593A007D0F61 /* ViewController.swift */; };
 		D3507C4E2856593A007D0F61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3507C4C2856593A007D0F61 /* Main.storyboard */; };
 		D3507C502856593C007D0F61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3507C4F2856593C007D0F61 /* Assets.xcassets */; };
 		D3507C532856593C007D0F61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3507C512856593C007D0F61 /* LaunchScreen.storyboard */; };
+		D3A9F11828619FB300080B8E /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A9F11728619FB300080B8E /* OnBoardViewController.swift */; };
 		D3D431D72858865700D78987 /* PlanJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D431D62858865700D78987 /* PlanJourneyViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +26,7 @@
 		30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSearchViewController.swift; sourceTree = "<group>"; };
 		30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GooglePlacesManager.swift; path = Mobisee/View/GooglePlacesManager.swift; sourceTree = SOURCE_ROOT; };
 		5DEB5B873E9D3AA8CDBD65AF /* Pods-Mobisee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.release.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.release.xcconfig"; sourceTree = "<group>"; };
+		D30FAD2028631A3C00AC5DFF /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		D3507C432856593A007D0F61 /* Mobisee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobisee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3507C462856593A007D0F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3507C482856593A007D0F61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,8 +35,8 @@
 		D3507C4F2856593C007D0F61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3507C522856593C007D0F61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3507C542856593C007D0F61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3A9F11728619FB300080B8E /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
 		D3D431D62858865700D78987 /* PlanJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanJourneyViewController.swift; sourceTree = "<group>"; };
-		D3D431D8285B125700D78987 /* StartingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingViewController.swift; sourceTree = "<group>"; };
 		FDB0555E60A06A320CEFDA4D /* Pods-Mobisee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.debug.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,8 +123,9 @@
 			children = (
 				30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */,
 				D3507C4A2856593A007D0F61 /* ViewController.swift */,
-				D3D431D8285B125700D78987 /* StartingViewController.swift */,
 				D3D431D62858865700D78987 /* PlanJourneyViewController.swift */,
+				D3A9F11728619FB300080B8E /* OnBoardViewController.swift */,
+				D30FAD2028631A3C00AC5DFF /* StartViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -242,11 +246,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3507C4B2856593A007D0F61 /* ViewController.swift in Sources */,
+				D30FAD2128631A3C00AC5DFF /* StartViewController.swift in Sources */,
 				D3D431D72858865700D78987 /* PlanJourneyViewController.swift in Sources */,
 				D3507C472856593A007D0F61 /* AppDelegate.swift in Sources */,
 				30E4697D2859A05E00C435CA /* ResultSearchViewController.swift in Sources */,
 				D3507C492856593A007D0F61 /* SceneDelegate.swift in Sources */,
 				30E4697F2859E2BD00C435CA /* GooglePlacesManager.swift in Sources */,
+				D3A9F11828619FB300080B8E /* OnBoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

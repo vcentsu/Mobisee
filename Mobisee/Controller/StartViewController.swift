@@ -1,21 +1,18 @@
 //
-//  StartingViewController.swift
+//  StartViewController.swift
 //  Mobisee
 //
-//  Created by Vincentius Sutanto on 16/06/22.
+//  Created by Vincentius Sutanto on 22/06/22.
 //
 
 import UIKit
 
-class StartingViewController: UIViewController {
+class StartViewController: UIViewController {
 
-    
-    @IBOutlet weak var planBtn: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
+        // Do any additional setup after loading the view.
     }
     
     @IBAction func pressPlanBtn(_ sender: Any) {
