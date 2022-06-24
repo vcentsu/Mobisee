@@ -24,7 +24,7 @@ class OnBoardViewController: UIViewController , UICollectionViewDataSource , UIC
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        updateViewMain()
+        pageControl.numberOfPages = img.count
     }
 
     
@@ -37,6 +37,12 @@ class OnBoardViewController: UIViewController , UICollectionViewDataSource , UIC
         
         cell.image.image = UIImage(named: img[indexPath.row])
         cell.button.isHidden = btn[indexPath.row]
+        
+        if pageControl.currentPage == 2 {
+            skipBtn.isHidden = true
+        }else{
+            skipBtn.isHidden = false
+        }
 
         return cell
     }
@@ -44,23 +50,12 @@ class OnBoardViewController: UIViewController , UICollectionViewDataSource , UIC
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return collectionView.bounds.size;
         }
-
-    func updateViewMain(){
-        pageControl.numberOfPages = img.count
-        if activePage == 2 {
-            skipBtn.isHidden = true
-        }else{
-            skipBtn.isHidden = false
-        }
-    }
     
     @IBAction func pressSkipBtn(_ sender: Any) {
-        //activePage = 2
         collectionView.isPagingEnabled = false
         collectionView.scrollToItem(at: IndexPath(item: 2, section: 0), at: .left, animated: true)
         //collectionView.reloadData()
         collectionView.isPagingEnabled = true
-        updateViewMain()
     }
     
     @IBAction func pressUnderstandBtn(_ sender: Any) {
@@ -73,14 +68,12 @@ class OnBoardViewController: UIViewController , UICollectionViewDataSource , UIC
 extension OnBoardViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-        activePage = pageControl.currentPage
-        updateViewMain()
+        collectionView.reloadData()
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
 
         pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-        activePage = pageControl.currentPage
-        updateViewMain()
+        collectionView.reloadData()
     }
 }
