@@ -13,6 +13,8 @@ class OnBoardViewController: UIViewController , UICollectionViewDataSource , UIC
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var skipBtn: UIButton!
+    
     // DATA CONTROL
     var img = ["Card1", "Card2", "Card3"]
     var btn = [true, true, false]
@@ -22,7 +24,7 @@ class OnBoardViewController: UIViewController , UICollectionViewDataSource , UIC
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        pageControl.numberOfPages = img.count
+        updateViewMain()
     }
 
     
@@ -35,27 +37,50 @@ class OnBoardViewController: UIViewController , UICollectionViewDataSource , UIC
         
         cell.image.image = UIImage(named: img[indexPath.row])
         cell.button.isHidden = btn[indexPath.row]
-        // Parallax cell setup
-                
+
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return collectionView.bounds.size;
         }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        self.pageControl.currentPage = indexPath.section
+
+    func updateViewMain(){
+        pageControl.numberOfPages = img.count
+        if activePage == 2 {
+            skipBtn.isHidden = true
+        }else{
+            skipBtn.isHidden = false
+        }
     }
     
     @IBAction func pressSkipBtn(_ sender: Any) {
-        activePage = 1
-        collectionView.scrollToItem(at: IndexPath(item: 3, section: 0), at: .centeredHorizontally, animated: true)
+        //activePage = 2
+        collectionView.isPagingEnabled = false
+        collectionView.scrollToItem(at: IndexPath(item: 2, section: 0), at: .left, animated: true)
+        //collectionView.reloadData()
+        collectionView.isPagingEnabled = true
+        updateViewMain()
     }
     
     @IBAction func pressUnderstandBtn(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "StartView") as? StartViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+}
+
+extension OnBoardViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        activePage = pageControl.currentPage
+        updateViewMain()
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+
+        pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        activePage = pageControl.currentPage
+        updateViewMain()
     }
 }
