@@ -13,7 +13,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationItem.backBarButtonItem?.isEnabled = false
+        navigationItem.hidesBackButton = true
     }
     
     @IBAction func pressPlanBtn(_ sender: Any) {

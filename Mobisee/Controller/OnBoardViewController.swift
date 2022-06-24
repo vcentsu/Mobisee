@@ -13,6 +13,7 @@ class OnBoardViewController: UIViewController , UICollectionViewDataSource , UIC
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // DATA CONTROL
     var img = ["Card1", "Card2", "Card3"]
     var btn = [true, true, false]
     var activePage: Int = 0
@@ -22,9 +23,8 @@ class OnBoardViewController: UIViewController , UICollectionViewDataSource , UIC
 
         // Do any additional setup after loading the view.
         pageControl.numberOfPages = img.count
-        
-        
     }
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return img.count
@@ -35,11 +35,27 @@ class OnBoardViewController: UIViewController , UICollectionViewDataSource , UIC
         
         cell.image.image = UIImage(named: img[indexPath.row])
         cell.button.isHidden = btn[indexPath.row]
+        // Parallax cell setup
+                
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return collectionView.bounds.size;
+        }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.pageControl.currentPage = indexPath.section
     }
     
     @IBAction func pressSkipBtn(_ sender: Any) {
         activePage = 1
-        collectionView.scrollToItem(at: IndexPath(item: 2, section: 1), at: .centeredHorizontally, animated: true)
+        collectionView.scrollToItem(at: IndexPath(item: 3, section: 0), at: .centeredHorizontally, animated: true)
+    }
+    
+    @IBAction func pressUnderstandBtn(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "StartView") as? StartViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

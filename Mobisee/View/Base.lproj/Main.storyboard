@@ -13,13 +13,13 @@
         <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="Mobisee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartView" id="BYZ-38-t0r" customClass="StartViewController" customModule="Mobisee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Home Page" translatesAutoresizingMaskIntoConstraints="NO" id="mJu-rz-dow">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <rect key="frame" x="0.0" y="-44" width="390" height="888"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOJ-96-lQj">
                                 <rect key="frame" x="65" y="110" width="260" height="132"/>
@@ -52,16 +52,18 @@ your journey</string>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="AccentColor"/>
                         <constraints>
+                            <constraint firstItem="mJu-rz-dow" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="AfV-Yk-Gps"/>
                             <constraint firstItem="yOJ-96-lQj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="66" id="Czi-nt-WhN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mJu-rz-dow" secondAttribute="trailing" id="IBQ-xq-4c1"/>
-                            <constraint firstItem="mJu-rz-dow" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="KRf-Cf-dbb"/>
                             <constraint firstItem="lY6-nd-kuM" firstAttribute="leading" secondItem="yOJ-96-lQj" secondAttribute="leading" id="LMm-yd-LNC"/>
                             <constraint firstItem="yOJ-96-lQj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ole-Pz-lKE"/>
-                            <constraint firstItem="mJu-rz-dow" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fmF-Al-Cpc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mJu-rz-dow" secondAttribute="bottom" constant="-34" id="pUt-on-xbl"/>
+                            <constraint firstItem="mJu-rz-dow" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XEk-QD-ygf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mJu-rz-dow" secondAttribute="trailing" id="qux-Cm-kNc"/>
                             <constraint firstItem="lY6-nd-kuM" firstAttribute="top" secondItem="yOJ-96-lQj" secondAttribute="bottom" constant="8" symbolic="YES" id="ttP-BT-stv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="mJu-rz-dow" secondAttribute="top" constant="88" id="uR2-8C-QwJ"/>
+                            <constraint firstItem="mJu-rz-dow" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="voF-VV-Wwr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fJ9-wb-lNf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -239,6 +241,9 @@ your journey</string>
                                                         <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
                                                         <color key="baseBackgroundColor" red="1" green="0.54117647059999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="pressUnderstandBtn:" destination="yd1-wG-TNv" eventType="touchUpInside" id="5JT-8U-thf"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
