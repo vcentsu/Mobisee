@@ -62,7 +62,7 @@
     <resources>
         <image name="3x3 icon" width="630" height="630"/>
         <namedColor name="AccentColor">
-            <color red="0.35686274509803922" green="0.61568627450980395" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.35699999332427979" green="0.61599999666213989" blue="0.34099999070167542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
