@@ -12,27 +12,23 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-    @IBAction func pressPlanBtn(_ sender: Any) {
-        let planJourneyVC =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlanJourneyID")
-        if let sheet = planJourneyVC.sheetPresentationController {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presentModal()
+    }
+    
+    private func presentModal(){
+        let navPlanJourneyVC =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationPlanJourneyID")
+        navPlanJourneyVC.isModalInPresentation = true
+        if let sheet = navPlanJourneyVC.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
-            sheet.preferredCornerRadius = 24
+            sheet.preferredCornerRadius = 25
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = true
         }
         
-        self.present(planJourneyVC, animated: true, completion: nil)
+        self.present(navPlanJourneyVC, animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

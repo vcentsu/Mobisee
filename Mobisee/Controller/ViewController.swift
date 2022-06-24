@@ -10,10 +10,9 @@ import GoogleMaps
 import CoreLocation
 import GooglePlaces
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UISearchResultsUpdating {
+class ViewController: UIViewController, CLLocationManagerDelegate{
     
     let manager = CLLocationManager()
-    let searchVC = UISearchController(searchResultsController: ResultSearchViewController())
     var mapView = GMSMapView()
     
     override func viewDidLoad() {
@@ -24,11 +23,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UISearchResul
         manager.startUpdatingLocation()
         
         title = "Add your location"
-        searchVC.searchResultsUpdater = self
-        searchVC.searchBar.backgroundColor = .secondarySystemBackground
-        navigationItem.searchController = searchVC
 
-        
     }
     
     
@@ -54,42 +49,45 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UISearchResul
         
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let query = searchController.searchBar.text,
-              !query.trimmingCharacters(in: .whitespaces).isEmpty,
-              let resultsVC = searchController.searchResultsController as? ResultSearchViewController
-        else{
-            return
-        }
-        
-        resultsVC.delegate = self
-        
-        GooglePlacesManager.shared.findPlaces(query: query) { result in
-            switch result{
-            case .success(let places):
-                print(places)
-                print("Found Places")
-                
-                DispatchQueue.main.async {
-                    resultsVC.update(with: places)
-                }
-                
-            case .failure(let error):
-                print(error)
-                
-            }
-        }
-    }
+//    func updateSearchResults(for searchController: UISearchController) {
+//        guard let query = searchController.searchBar.text,
+//              !query.trimmingCharacters(in: .whitespaces).isEmpty,
+//              let resultsVC = searchController.searchResultsController as? ResultSearchViewControllerOld
+//        else{
+//            return
+//        }
+//
+////        resultsVC.delegate = self
+//
+//        GooglePlacesManager.shared.findPlaces(query: query) { result in
+//            switch result{
+//            case .success(let places):
+//                print(places)
+//                print("Found Places")
+//
+//                DispatchQueue.main.async {
+//                    resultsVC.update(with: places)
+//                }
+//
+//            case .failure(let error):
+//                print(error)
+//
+//            }
+//        }
+//    }
 }
 
-extension ViewController: ResultSearchViewControllerDelegate{
-    func didTapPlace(with coordinates: CLLocationCoordinate2D) {
-        searchVC.searchBar.resignFirstResponder()
+extension ViewController: PlanJourneyDelegate{
+    func didTapPlace(with coordinates: CLLocationCoordinate2D, text: String) {
         
         //remove all pins in map
-        
+        self.mapView.clear()
+         
         //add pin in map
         let camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 10.0)
+        
+        print(coordinates)
+        
         mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
         mapView.frame = view.bounds
         view.addSubview(mapView)

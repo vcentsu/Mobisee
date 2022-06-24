@@ -12,7 +12,7 @@ protocol ResultSearchViewControllerDelegate: AnyObject{
     func didTapPlace(with coordinates: CLLocationCoordinate2D)
 }
 
-class ResultSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ResultSearchViewControllerOld: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
     weak var delegate: ResultSearchViewControllerDelegate?
     

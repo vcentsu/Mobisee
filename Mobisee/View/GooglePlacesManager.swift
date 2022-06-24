@@ -23,7 +23,7 @@ final class GooglePlacesManager{
     
     enum PlacesError: Error{
         case failedToFind
-        case faileToGetCoordinate
+        case failedToGetCoordinate
     }
     
     public func findPlaces(
@@ -57,7 +57,7 @@ final class GooglePlacesManager{
                           sessionToken: nil
         ) { googlePlace, error in
             guard let googlePlace = googlePlace, error == nil else{
-                completion(.failure(PlacesError.faileToGetCoordinate))
+                completion(.failure(PlacesError.failedToGetCoordinate))
                 return
             }
             
