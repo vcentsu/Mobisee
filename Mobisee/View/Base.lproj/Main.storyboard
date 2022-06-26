@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lzy-6S-ixo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -82,6 +82,9 @@ your journey</string>
                                     <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
                                     <color key="baseForegroundColor" red="1" green="0.54117647059999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="arrivalTimeTapped:" destination="4Eu-Rb-PCe" eventType="touchUpInside" id="DCO-v2-xd9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t1g-L7-ccM"/>
@@ -100,6 +103,7 @@ your journey</string>
                     </view>
                     <navigationItem key="navigationItem" id="OeN-ms-g3D"/>
                     <connections>
+                        <outlet property="arrivalTimeBtn" destination="dfW-NR-cfU" id="PSx-0D-uPt"/>
                         <outlet property="resultTable" destination="9wo-Vi-9sq" id="9XO-Bu-eBI"/>
                         <outlet property="searchViaMap" destination="3iS-Vb-RR3" id="XES-u9-nAM"/>
                         <segue destination="BWc-ea-Cff" kind="show" id="yLn-08-Kdo"/>
@@ -345,6 +349,41 @@ your journey</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xtn-6b-NM9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-73.84615384615384" y="2294.7867298578199"/>
+        </scene>
+        <!--Category Transaction-->
+        <scene sceneID="HEA-Va-Dra">
+            <objects>
+                <viewController storyboardIdentifier="PickTime" title="Category Transaction" id="SU1-99-9VJ" customClass="TimePickerViewController" customModule="Mobisee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="afp-4S-jO0">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="rjv-cf-Szt">
+                                <rect key="frame" x="0.0" y="44" width="390" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="k3z-Xm-maQ"/>
+                                </constraints>
+                                <locale key="locale" localeIdentifier="id"/>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zq0-1a-Y88"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rjv-cf-Szt" firstAttribute="trailing" secondItem="Zq0-1a-Y88" secondAttribute="trailing" id="0Gk-zL-Dtl"/>
+                            <constraint firstItem="rjv-cf-Szt" firstAttribute="leading" secondItem="Zq0-1a-Y88" secondAttribute="leading" id="8aO-hn-M29"/>
+                            <constraint firstItem="rjv-cf-Szt" firstAttribute="top" secondItem="Zq0-1a-Y88" secondAttribute="top" id="dc8-cO-66w"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="jng-9s-4x8"/>
+                    <connections>
+                        <outlet property="timePicker" destination="rjv-cf-Szt" id="fYl-On-2lW"/>
+                        <segue destination="DiJ-e2-ovz" kind="unwind" identifier="unwindToCategory" unwindAction="unwind:" id="Chb-EK-zlS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rlT-hq-IOw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="DiJ-e2-ovz" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="893.84615384615381" y="1532.7014218009479"/>
         </scene>
     </scenes>
     <resources>

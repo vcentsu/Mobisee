@@ -16,6 +16,12 @@ class PlanJourneyViewController: UIViewController {
     
     @IBOutlet weak var searchViaMap: UIButton!
     @IBOutlet weak var resultTable: UITableView!
+    @IBOutlet weak var arrivalTimeBtn: UIButton!
+    
+    let timePicker = UIPickerView()
+    
+    var selectedTime: String = ""
+    
     private var places: [Place] = []
     weak var delegate: PlanJourneyDelegate?
     let searchVC = UISearchController()
@@ -43,6 +49,32 @@ class PlanJourneyViewController: UIViewController {
             vc.modalPresentationStyle = .fullScreen
         }
     }
+    
+    @IBAction func arrivalTimeTapped(_ sender: Any) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "PickTime") as? TimePickerViewController else {
+            return
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+        if let vc = seg.source as? TimePickerViewController {
+            arrivalTimeBtn.setTitle(vc.pickTime, for: .normal)
+            print(vc.pickTime)
+            selectedTime = vc.pickTime
+        }
+    }
+    
+//    func createTimePicker(){
+//        let toolbar = UIToolbar()
+//        toolbar.sizeToFit()
+//
+//        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+//
+//        arrivalTimeBtn.inputAccessoryView = toolbar
+//        arrivalTimeBtn.inputView = timePicker
+//    }
+    
 }
 
 extension PlanJourneyViewController: UITableViewDelegate, UITableViewDataSource{
