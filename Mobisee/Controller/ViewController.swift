@@ -10,10 +10,12 @@ import GoogleMaps
 import CoreLocation
 import GooglePlaces
 
-class ViewController: UIViewController, CLLocationManagerDelegate{
+class ViewController: UIViewController{
     
     let manager = CLLocationManager()
     var mapView = GMSMapView()
+    var coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+    var mapDidUpdate = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,28 +28,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 
     }
     
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
-            return
+    //extension ViewController: PlanJourneyDelegate{
+        func didTapPlace(with coordinates: CLLocationCoordinate2D, text: String) {
+            
+            //remove all pins in map
+            self.mapView.clear()
+             
+            //add pin in map
+            let camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 50.0)
+            
+            print(coordinates)
+            
+            mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
+            mapView.frame = view.bounds
+            view.addSubview(mapView)
+            let marker = GMSMarker()
+            marker.position = coordinates
+            marker.map = mapView
+        
         }
-        
-        // Do any additional setup after loading the view.
-        let coordinate = location.coordinate
-        let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude, longitude: coordinate.longitude, zoom: 6.0)
-        mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
-        view.addSubview(mapView)
-
-       // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = coordinate
-        marker.title = "Sydneyaaa"
-        marker.snippet = "Australia"
-        marker.map = mapView
-        
-        print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
-        
-    }
     
 //    func updateSearchResults(for searchController: UISearchController) {
 //        guard let query = searchController.searchBar.text,
@@ -77,24 +76,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 //    }
 }
 
-extension ViewController: PlanJourneyDelegate{
-    func didTapPlace(with coordinates: CLLocationCoordinate2D, text: String) {
+extension ViewController: CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else {
+            return
+        }
         
-        //remove all pins in map
-        self.mapView.clear()
-         
-        //add pin in map
-        let camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 10.0)
-        
-        print(coordinates)
-        
+        // Do any additional setup after loading the view.
+        let coordinate = location.coordinate
+        let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude, longitude: coordinate.longitude, zoom: 6.0)
         mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
-        mapView.frame = view.bounds
         view.addSubview(mapView)
+
+       // Creates a marker in the center of the map.
         let marker = GMSMarker()
-        marker.position = coordinates
+        marker.position = coordinate
+        marker.title = "Sydneyaaa"
+        marker.snippet = "Australia"
         marker.map = mapView
-    
+        
+        print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
+        
+//        if mapDidUpdate == true{
+//            didTapPlace(with: coordinates, text: "check")
+//        }
+//        else{
+//            return
+//        }
+        
     }
 }
 
