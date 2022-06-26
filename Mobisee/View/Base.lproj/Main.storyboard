@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Home Page" translatesAutoresizingMaskIntoConstraints="NO" id="mJu-rz-dow">
-                                <rect key="frame" x="0.0" y="-44" width="390" height="888"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOJ-96-lQj">
                                 <rect key="frame" x="65" y="110" width="260" height="132"/>
@@ -309,6 +309,56 @@ your journey</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F13-D1-BEC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-35" y="823"/>
+        </scene>
+        <!--Detailed Map Controller-->
+        <scene sceneID="oSN-Cq-n02">
+            <objects>
+                <viewController storyboardIdentifier="DetailMapSB" id="75O-BA-OOt" customClass="DetailedMapController" customModule="Mobisee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J8e-f1-a2c">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yd-Dx-1uB" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8V-eB-RaO">
+                                        <rect key="frame" x="71" y="514" width="108" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-Yv-Is6">
+                                        <rect key="frame" x="71" y="571" width="99" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dRn-nd-Nq3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Yd-Dx-1uB" firstAttribute="top" secondItem="J8e-f1-a2c" secondAttribute="top" id="8wJ-Zo-kzi"/>
+                            <constraint firstItem="6Yd-Dx-1uB" firstAttribute="trailing" secondItem="dRn-nd-Nq3" secondAttribute="trailing" id="WFp-rM-RTA"/>
+                            <constraint firstAttribute="bottom" secondItem="6Yd-Dx-1uB" secondAttribute="bottom" id="fQi-D3-D2C"/>
+                            <constraint firstItem="6Yd-Dx-1uB" firstAttribute="leading" secondItem="dRn-nd-Nq3" secondAttribute="leading" id="xNz-pe-aGm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="eyp-Ib-zjH"/>
+                    <connections>
+                        <outlet property="detailMapView" destination="6Yd-Dx-1uB" id="V19-ep-R2D"/>
+                        <outlet property="mapView" destination="6Yd-Dx-1uB" id="7iO-98-aKL"/>
+                        <outlet property="totalDistance" destination="i8V-eB-RaO" id="1yw-nT-Okh"/>
+                        <outlet property="totalTime" destination="cCh-Yv-Is6" id="rwm-ip-bam"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bdV-TV-ddF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-35.384615384615387" y="1562.5592417061612"/>
         </scene>
     </scenes>
     <resources>
