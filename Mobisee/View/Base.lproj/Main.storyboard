@@ -142,20 +142,75 @@ your journey</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FWf-cc-3Kq">
-                                    <size key="itemSize" width="340" height="128"/>
+                                    <size key="itemSize" width="340" height="99"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BDf-J1-UYM">
-                                        <rect key="frame" x="25" y="0.0" width="340" height="128"/>
+                                        <rect key="frame" x="20" y="0.0" width="350" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QkH-c9-LVZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="340" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2k-YF-0rI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="70"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RL6-WZ-acW">
+                                                            <rect key="frame" x="21.666666666666671" y="37" width="42" height="22"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="53" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xck-qf-WZ2">
+                                                            <rect key="frame" x="29.666666666666671" y="13" width="26" height="24"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="1" green="0.6705882352941176" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="85" id="5oR-Lk-R6d"/>
+                                                        <constraint firstItem="RL6-WZ-acW" firstAttribute="centerX" secondItem="Xck-qf-WZ2" secondAttribute="centerX" id="7v5-mZ-Mdr"/>
+                                                        <constraint firstItem="Xck-qf-WZ2" firstAttribute="top" secondItem="L2k-YF-0rI" secondAttribute="top" constant="13" id="Axx-A8-H4v"/>
+                                                        <constraint firstItem="Xck-qf-WZ2" firstAttribute="centerX" secondItem="L2k-YF-0rI" secondAttribute="centerX" id="M0M-8r-Ofy"/>
+                                                        <constraint firstItem="RL6-WZ-acW" firstAttribute="top" secondItem="Xck-qf-WZ2" secondAttribute="bottom" id="gl9-tG-Qj8"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07.07" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wth-pV-RYK">
+                                                    <rect key="frame" x="105" y="8" width="41" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07.07" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKi-vB-GaI">
+                                                    <rect key="frame" x="246" y="8" width="41" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- - - - - &gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMh-gl-leg">
+                                                    <rect key="frame" x="168" y="7" width="70" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="L2k-YF-0rI" secondAttribute="bottom" id="gXw-Ya-247"/>
+                                                <constraint firstItem="L2k-YF-0rI" firstAttribute="centerY" secondItem="QkH-c9-LVZ" secondAttribute="centerY" id="hPG-sA-LKc"/>
+                                                <constraint firstItem="L2k-YF-0rI" firstAttribute="top" secondItem="QkH-c9-LVZ" secondAttribute="top" id="hbV-fG-5cg"/>
+                                                <constraint firstItem="L2k-YF-0rI" firstAttribute="leading" secondItem="QkH-c9-LVZ" secondAttribute="leading" id="qdN-Vn-lA4"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="340" height="128"/>
+                                        <color key="backgroundColor" red="1" green="0.95294117647058818" blue="0.89803921568627454" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                        <size key="customSize" width="350" height="70"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -163,7 +218,7 @@ your journey</string>
                         <viewLayoutGuide key="safeArea" id="CIl-uJ-O8F"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Recommended" id="JAh-JZ-6rA"/>
+                    <navigationItem key="navigationItem" title="Recommended" largeTitleDisplayMode="always" id="JAh-JZ-6rA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yPY-ZL-MwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

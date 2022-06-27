@@ -18,8 +18,6 @@ class PlanJourneyViewController: UIViewController {
     @IBOutlet weak var resultTable: UITableView!
     @IBOutlet weak var arrivalTimeBtn: UIButton!
     
-    let timePicker = UIPickerView()
-    
     var selectedTime: String = ""
     
     private var places: [Place] = []
@@ -59,21 +57,11 @@ class PlanJourneyViewController: UIViewController {
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
         if let vc = seg.source as? TimePickerViewController {
-            arrivalTimeBtn.setTitle(vc.pickTime, for: .normal)
+            arrivalTimeBtn.setTitle(" \(vc.pickTime)", for: .normal)
             print(vc.pickTime)
             selectedTime = vc.pickTime
         }
     }
-    
-//    func createTimePicker(){
-//        let toolbar = UIToolbar()
-//        toolbar.sizeToFit()
-//
-//        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
-//
-//        arrivalTimeBtn.inputAccessoryView = toolbar
-//        arrivalTimeBtn.inputView = timePicker
-//    }
     
 }
 
