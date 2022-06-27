@@ -39,11 +39,11 @@ class PlanJourneyViewController: UIViewController {
     
     @IBAction func viaMapTapped(_ sender: Any) {
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainSB") as? ViewController{
-            self.navigationController?.pushViewController(vc, animated: true)
             vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(vc, animated: true, completion: nil)
+            }
         }
     }
-}
 
 extension PlanJourneyViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,11 +67,16 @@ extension PlanJourneyViewController: UITableViewDelegate, UITableViewDataSource{
                 DispatchQueue.main.async {
 //                    self.delegate?.didTapPlace(with: coordinate, text: "Check")
 
-                    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainSB") as? ViewController{
+//                    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainSB") as? ViewController{
+//                        vc.modalPresentationStyle = .fullScreen
+//                        vc.coordinates = coordinate
+//                        vc.mapDidUpdate = true
+//                        self.navigationController?.present(vc, animated: true, completion: nil)
+//                    }
+                    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailMapSB") as? DetailedMapController{
                         vc.modalPresentationStyle = .fullScreen
-                        vc.coordinates = coordinate
-                        vc.mapDidUpdate = true
-                        self.navigationController?.present(vc, animated: true, completion: nil)
+                        vc.destination = "\(coordinate.latitude),\(coordinate.longitude)"
+                        self.present(vc, animated: true, completion: nil)
                     }
                 }
 

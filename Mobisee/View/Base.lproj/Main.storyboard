@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="75O-BA-OOt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lzy-6S-ixo">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -103,6 +103,7 @@ your journey</string>
                         <outlet property="resultTable" destination="9wo-Vi-9sq" id="9XO-Bu-eBI"/>
                         <outlet property="searchViaMap" destination="3iS-Vb-RR3" id="XES-u9-nAM"/>
                         <segue destination="BWc-ea-Cff" kind="show" id="yLn-08-Kdo"/>
+                        <segue destination="75O-BA-OOt" kind="show" id="bJg-0X-115"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2XD-VY-199" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -326,11 +327,11 @@ your journey</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yd-Dx-1uB" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="512"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="424"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-Yv-Is6">
-                                <rect key="frame" x="71" y="657" width="249" height="49"/>
+                                <rect key="frame" x="51" y="657" width="288" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -340,7 +341,7 @@ your journey</string>
                         <viewLayoutGuide key="safeArea" id="dRn-nd-Nq3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Yd-Dx-1uB" firstAttribute="top" secondItem="J8e-f1-a2c" secondAttribute="top" id="8wJ-Zo-kzi"/>
+                            <constraint firstItem="6Yd-Dx-1uB" firstAttribute="top" secondItem="J8e-f1-a2c" secondAttribute="top" constant="88" id="8wJ-Zo-kzi"/>
                             <constraint firstItem="6Yd-Dx-1uB" firstAttribute="trailing" secondItem="dRn-nd-Nq3" secondAttribute="trailing" id="WFp-rM-RTA"/>
                             <constraint firstAttribute="bottom" secondItem="6Yd-Dx-1uB" secondAttribute="bottom" constant="332" id="fQi-D3-D2C"/>
                             <constraint firstItem="6Yd-Dx-1uB" firstAttribute="leading" secondItem="dRn-nd-Nq3" secondAttribute="leading" id="xNz-pe-aGm"/>
@@ -355,7 +356,7 @@ your journey</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdV-TV-ddF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-35.384615384615387" y="1562.5592417061612"/>
+            <point key="canvasLocation" x="-75.384615384615387" y="1552.6066350710901"/>
         </scene>
     </scenes>
     <resources>

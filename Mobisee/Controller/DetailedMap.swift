@@ -14,10 +14,12 @@ import CoreLocation
 class DetailedMapController: UIViewController {
 
     @IBOutlet weak var detailMapView: GMSMapView!
-    let apiKey = "AIzaSyCtqBUAWmad-1yoHww05Z6XS7jKfZZWdXo"
-
     @IBOutlet weak var totalDistance: UILabel!
     @IBOutlet weak var totalTime: UILabel!
+    //hardcoded placeholder
+    var origin = "\(-6.209960642473714),\(106.84987491861534)"
+    var destination = "\(-6.17519),\(106.82710)"
+    let apiKey = "AIzaSyCtqBUAWmad-1yoHww05Z6XS7jKfZZWdXo"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +27,6 @@ class DetailedMapController: UIViewController {
     }
     
     func drawGoogleAPIDirection(){
-        //hardcoded placeholder
-        let origin = "\(-6.213390),\(106.851940)"
-        let destination = "\(-6.17519), \(106.82710)"
-        
         let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=transit&key=\(apiKey)"
         let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: encodedURL!)
@@ -45,18 +43,26 @@ class DetailedMapController: UIViewController {
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options :.fragmentsAllowed) as! [String :AnyObject]
                     let routes = json["routes"] as! NSArray
+                    print(routes)
+//                    print(routes.object)
                     
                     self.getTotalDistance()
                     
                     OperationQueue.main.addOperation({
                         for route in routes {
                             let routeOverviewPolyline:NSDictionary = (route as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
+                            let legs = (route as! NSDictionary).value(forKey: "legs")
+                            print(legs)
+                            let steps = (legs as! NSArray).value(forKey: "steps")
+                            let travelModes = (steps as! NSArray).value(forKey: "travel_mode")
+//                            print(travelModes)
+                            
                             
                             let points = routeOverviewPolyline.object(forKey: "points")
                             let path = GMSPath.init(fromEncodedPath: points! as! String)
                             let polyline = GMSPolyline.init(path: path)
                             polyline.strokeWidth = 3
-                            polyline.strokeColor = UIColor(red: 91, green: 157, blue: 87, alpha: 1.0)
+                            polyline.strokeColor = UIColor(red: 100, green: 100, blue: 100, alpha: 1.0)
                             
                             let bounds = GMSCoordinateBounds(path: path!)
                             self.detailMapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 30.0))
@@ -75,21 +81,20 @@ class DetailedMapController: UIViewController {
     
     func addSourceDestinationMarkers(){
         let markerSource = GMSMarker()
-        markerSource.position = CLLocationCoordinate2D(latitude: -6.213390, longitude: 106.851940)
+//        markerSource.icon = UIImage(named: "PinPoint")
+        markerSource.position = stringToCoord(longLat: origin)
         markerSource.title = "Point A"
         markerSource.map = detailMapView
         
         let markerDestination = GMSMarker()
-        markerSource.position = CLLocationCoordinate2D(latitude: -6.17519, longitude: 106.82710)
-        markerSource.title = "Point B"
+//        markerSource.icon = UIImage(named: "PinPoint")
+        markerDestination.position = stringToCoord(longLat: destination)
+        markerDestination.title = "Point B"
         markerDestination.map = detailMapView
         
     }
     
     func getTotalDistance(){
-        //hardcoded placeholder
-        let origin = "\(-6.213390),\(106.851940)"
-        let destination = "\(-6.17519), \(106.82710)"
         
         //can be acessed in api documentation
         let urlString = "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=\(destination)&mode=transit&origins=\(origin)&key=\(apiKey)&language=en-EN&transit_routing_preference=less_walking"
@@ -129,5 +134,14 @@ class DetailedMapController: UIViewController {
                 
             }
         }).resume()
+    }
+    
+    func stringToCoord(longLat:String) -> CLLocationCoordinate2D{
+        let coordArr = longLat.components(separatedBy: ",")
+        
+        let latitude = Double(coordArr[0])
+        let longitude = Double(coordArr[1])
+        
+        return CLLocationCoordinate2D(latitude: latitude ?? 0, longitude: longitude ?? 0)
     }
 }
