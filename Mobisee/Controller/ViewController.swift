@@ -10,10 +10,12 @@ import GoogleMaps
 import CoreLocation
 import GooglePlaces
 
-class ViewController: UIViewController, CLLocationManagerDelegate{
+class ViewController: UIViewController{
     
     let manager = CLLocationManager()
     var mapView = GMSMapView()
+    var coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+    var mapDidUpdate = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 
     }
     
-    
+    //extension ViewController: PlanJourneyDelegate{
+        func didTapPlace(with coordinates: CLLocationCoordinate2D, text: String) {
+            
+            //remove all pins in map
+            self.mapView.clear()
+             
+            //add pin in map
+            let camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 50.0)
+            
+            print(coordinates)
+            
+            mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
+            mapView.frame = view.bounds
+            view.addSubview(mapView)
+            let marker = GMSMarker()
+            marker.position = coordinates
+            marker.map = mapView
+        
+        }
+}
+
+extension ViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
             return
@@ -47,8 +70,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
         
+        if mapDidUpdate == true{
+            didTapPlace(with: coordinates, text: "check")
+        }
+        else{
+            return
+        }
+        
     }
-    
+}
+
 //    func updateSearchResults(for searchController: UISearchController) {
 //        guard let query = searchController.searchBar.text,
 //              !query.trimmingCharacters(in: .whitespaces).isEmpty,
@@ -75,28 +106,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 //            }
 //        }
 //    }
-}
-
-extension ViewController: PlanJourneyDelegate{
-    func didTapPlace(with coordinates: CLLocationCoordinate2D, text: String) {
-        
-        //remove all pins in map
-        self.mapView.clear()
-         
-        //add pin in map
-        let camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 10.0)
-        
-        print(coordinates)
-        
-        mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
-        mapView.frame = view.bounds
-        view.addSubview(mapView)
-        let marker = GMSMarker()
-        marker.position = coordinates
-        marker.map = mapView
-    
-    }
-}
 
 
 
