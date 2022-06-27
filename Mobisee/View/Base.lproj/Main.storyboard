@@ -83,7 +83,7 @@ your journey</string>
                                     <color key="baseForegroundColor" red="1" green="0.54117647059999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="arrivalTimeTapped:" destination="4Eu-Rb-PCe" eventType="touchUpInside" id="DCO-v2-xd9"/>
+                                    <action selector="arrivalTimeTapped:" destination="4Eu-Rb-PCe" eventType="touchUpInside" id="oNS-IG-4tz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -388,7 +388,6 @@ your journey</string>
             </objects>
             <point key="canvasLocation" x="-35" y="823"/>
         </scene>
-
         <!--Detailed Map Controller-->
         <scene sceneID="oSN-Cq-n02">
             <objects>
@@ -454,10 +453,10 @@ your journey</string>
             </objects>
             <point key="canvasLocation" x="-73.84615384615384" y="2294.7867298578199"/>
         </scene>
-        <!--Category Transaction-->
+        <!--Leaving Time-->
         <scene sceneID="HEA-Va-Dra">
             <objects>
-                <viewController storyboardIdentifier="PickTime" title="Category Transaction" id="SU1-99-9VJ" customClass="TimePickerViewController" customModule="Mobisee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PickTime" title="Leaving Time" id="SU1-99-9VJ" customClass="TimePickerViewController" customModule="Mobisee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="afp-4S-jO0">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -47,7 +47,6 @@ class PlanJourneyViewController: UIViewController {
             self.navigationController?.present(vc, animated: true, completion: nil)
             }
         }
-    }
     
     @IBAction func arrivalTimeTapped(_ sender: Any) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "PickTime") as? TimePickerViewController else {
