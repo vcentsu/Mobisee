@@ -60,7 +60,7 @@ class TimePickerViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Sure", style: .default, handler: {action in
             let formatter = DateFormatter()
-            formatter.dateFormat = "HH:mm"
+            formatter.dateFormat = "HH.mm"
             self.pickTime = formatter.string(from: self.timePicker.date)
             print(self.pickTime)
             self.done()

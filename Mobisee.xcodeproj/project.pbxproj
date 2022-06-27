@@ -22,6 +22,8 @@
 		D3507C502856593C007D0F61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3507C4F2856593C007D0F61 /* Assets.xcassets */; };
 		D3507C532856593C007D0F61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3507C512856593C007D0F61 /* LaunchScreen.storyboard */; };
 		D396223B2868B671008563F4 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D396223A2868B671008563F4 /* TimePickerViewController.swift */; };
+		D396223D2869F51A008563F4 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D396223C2869F51A008563F4 /* RecommendCell.swift */; };
+		D396223F2869F839008563F4 /* RecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D396223E2869F839008563F4 /* RecommendationViewController.swift */; };
 		D3A9F11828619FB300080B8E /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A9F11728619FB300080B8E /* OnBoardViewController.swift */; };
 		D3D431D72858865700D78987 /* PlanJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D431D62858865700D78987 /* PlanJourneyViewController.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,8 @@
 		D3507C522856593C007D0F61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3507C542856593C007D0F61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D396223A2868B671008563F4 /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
+		D396223C2869F51A008563F4 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
+		D396223E2869F839008563F4 /* RecommendationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationViewController.swift; sourceTree = "<group>"; };
 		D3A9F11728619FB300080B8E /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
 		D3D431D62858865700D78987 /* PlanJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanJourneyViewController.swift; sourceTree = "<group>"; };
 		FDB0555E60A06A320CEFDA4D /* Pods-Mobisee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.debug.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				D30FAD2228645F8100AC5DFF /* ItemCell.swift */,
 				3073ADAB2868AB9D00DC4D55 /* DetailedMap.swift */,
 				D396223A2868B671008563F4 /* TimePickerViewController.swift */,
+				D396223C2869F51A008563F4 /* RecommendCell.swift */,
+				D396223E2869F839008563F4 /* RecommendationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -262,8 +268,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3507C4B2856593A007D0F61 /* ViewController.swift in Sources */,
+				D396223F2869F839008563F4 /* RecommendationViewController.swift in Sources */,
 				D30FAD2128631A3C00AC5DFF /* StartViewController.swift in Sources */,
 				D30FAD2328645F8100AC5DFF /* ItemCell.swift in Sources */,
+				D396223D2869F51A008563F4 /* RecommendCell.swift in Sources */,
 				D3D431D72858865700D78987 /* PlanJourneyViewController.swift in Sources */,
 				D3507C472856593A007D0F61 /* AppDelegate.swift in Sources */,
 				30E4697D2859A05E00C435CA /* ResultSearchViewController.swift in Sources */,
