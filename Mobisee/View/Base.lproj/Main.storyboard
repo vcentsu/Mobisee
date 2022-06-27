@@ -435,6 +435,7 @@ your journey</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdV-TV-ddF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-75.384615384615387" y="1552.6066350710901"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="7AM-1F-U4C">
             <objects>
