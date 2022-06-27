@@ -22,7 +22,7 @@ class TimePickerViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDone))
         
-        //timePicker.addTarget(self, action: #selector(timePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
+        timePicker.addTarget(self, action: #selector(timePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
     }
     
     @objc func timePickerValueChanged(sender: UIDatePicker){
@@ -32,26 +32,6 @@ class TimePickerViewController: UIViewController {
     }
     
     @objc func didTapDone(){
-        if pickTime == "" {
-            
-            // Alert "continue with current time?"
-            let alert = UIAlertController(title: "", message: "Do you want to continue with current time?", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
-                print("tapped dismiss")
-            }))
-            
-            alert.addAction(UIAlertAction(title: "Sure", style: .default, handler: {action in
-                let formatter = DateFormatter()
-                formatter.dateFormat = "HH:mm"
-                self.pickTime = formatter.string(from: self.timePicker.date)
-                print(self.pickTime)
-                self.done()
-            }))
-            
-            present(alert, animated: true)
-        }
-        
         done()
     }
     
@@ -71,8 +51,21 @@ class TimePickerViewController: UIViewController {
     }
     
     func showAlert() {
-        let alert = UIAlertController(title: "No Time Selected", message: "Select time you want", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: {action in print("tapped dismiss")}))
+        // Alert "continue with current time?"
+        let alert = UIAlertController(title: "", message: "Do you want to continue with current time?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
+            print("tapped dismiss")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Sure", style: .default, handler: {action in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm"
+            self.pickTime = formatter.string(from: self.timePicker.date)
+            print(self.pickTime)
+            self.done()
+        }))
+        
         present(alert, animated: true)
     }
 
