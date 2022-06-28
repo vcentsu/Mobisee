@@ -144,4 +144,8 @@ class DetailedMapController: UIViewController {
         
         return CLLocationCoordinate2D(latitude: latitude ?? 0, longitude: longitude ?? 0)
     }
+    
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }

@@ -11,9 +11,12 @@ import CoreLocation
 import GooglePlaces
 
 class ViewController: UIViewController{
+
     
+    @IBOutlet weak var gmapView: GMSMapView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     let manager = CLLocationManager()
-    var mapView = GMSMapView()
+//    var mapView = GMSMapView()
     var coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     var mapDidUpdate = false
     
@@ -23,33 +26,52 @@ class ViewController: UIViewController{
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        
-        title = "Add your location"
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+            // Restore the navigation bar to default
+            navigationBar.setBackgroundImage(nil, for: .default)
+            navigationBar.shadowImage = nil
     }
     
     //extension ViewController: PlanJourneyDelegate{
         func didTapPlace(with coordinates: CLLocationCoordinate2D, text: String) {
             
             //remove all pins in map
-            self.mapView.clear()
+            self.gmapView.clear()
              
             //add pin in map
             let camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 50.0)
             
             print(coordinates)
             
-            mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
-            mapView.frame = view.bounds
-            view.addSubview(mapView)
+            gmapView = GMSMapView.map(withFrame: view.frame, camera: camera)
+            gmapView.frame = view.bounds
+//            view.addSubview(mapView)
             let marker = GMSMarker()
             marker.position = coordinates
-            marker.map = mapView
+            marker.map = gmapView
         
         }
+    
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
 
 extension ViewController: CLLocationManagerDelegate{
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
             return
@@ -57,16 +79,18 @@ extension ViewController: CLLocationManagerDelegate{
         
         // Do any additional setup after loading the view.
         let coordinate = location.coordinate
-        let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude, longitude: coordinate.longitude, zoom: 6.0)
-        mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
-        view.addSubview(mapView)
+        let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude, longitude: coordinate.longitude, zoom: 16.0)
+        gmapView.animate(toLocation: coordinate)
+        gmapView.camera = camera
+        gmapView.animate(to: camera)
+//        view.addSubview(mapView)
 
        // Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = coordinate
         marker.title = "Sydneyaaa"
         marker.snippet = "Australia"
-        marker.map = mapView
+        marker.map = self.gmapView
         
         print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
         
@@ -76,7 +100,6 @@ extension ViewController: CLLocationManagerDelegate{
         else{
             return
         }
-        
     }
 }
 

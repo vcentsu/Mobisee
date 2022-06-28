@@ -63,6 +63,7 @@ class PlanJourneyViewController: UIViewController {
         }
     }
     
+    
 }
 
 extension PlanJourneyViewController: UITableViewDelegate, UITableViewDataSource{
@@ -93,6 +94,7 @@ extension PlanJourneyViewController: UITableViewDelegate, UITableViewDataSource{
 //                        vc.mapDidUpdate = true
 //                        self.navigationController?.present(vc, animated: true, completion: nil)
 //                    }
+                    
                     if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailMapSB") as? DetailedMapController{
                         vc.modalPresentationStyle = .fullScreen
                         vc.destination = "\(coordinate.latitude),\(coordinate.longitude)"
