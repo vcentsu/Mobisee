@@ -13,6 +13,7 @@ import CoreLocation
 
 class DetailedMapController: UIViewController {
 
+    @IBOutlet weak var buttonRecommend: UIView!
     @IBOutlet weak var detailMapView: GMSMapView!
     @IBOutlet weak var totalDistance: UILabel!
     @IBOutlet weak var totalTime: UILabel!
@@ -25,6 +26,7 @@ class DetailedMapController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         drawGoogleAPIDirection(pref: "less_walking")
+        buttonRecommend.layer.cornerRadius = 25
     }
     
     func drawGoogleAPIDirection(pref:String){
@@ -148,5 +150,21 @@ class DetailedMapController: UIViewController {
     
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    
+    @IBAction func seeRecom(_ sender: Any) {
+        presentModal()
+    }
+    
+    private func presentModal(){
+        let RecommendVC =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationRecommendID")
+        if let sheet = RecommendVC.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.preferredCornerRadius = 15
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = true
+            sheet.prefersGrabberVisible = true
+        }
+        
+        self.present(RecommendVC, animated: true, completion: nil)
     }
 }

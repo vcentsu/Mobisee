@@ -15,10 +15,13 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var gmapView: GMSMapView!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var pickButton: UIView!
+    let marker = GMSMarker()
     let manager = CLLocationManager()
 //    var mapView = GMSMapView()
     var coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     var backButtonTap = false
+    var longPressed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +29,7 @@ class ViewController: UIViewController{
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-
+        self.gmapView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +61,6 @@ class ViewController: UIViewController{
             gmapView = GMSMapView.map(withFrame: view.frame, camera: camera)
             gmapView.frame = view.bounds
 //            view.addSubview(mapView)
-            let marker = GMSMarker()
             marker.position = coordinates
             marker.map = gmapView
         
@@ -68,6 +70,7 @@ class ViewController: UIViewController{
         self.dismiss(animated: true)
         backButtonTap = true
     }
+    
 }
 
 extension ViewController: CLLocationManagerDelegate{
@@ -83,10 +86,11 @@ extension ViewController: CLLocationManagerDelegate{
         gmapView.animate(toLocation: coordinate)
         gmapView.camera = camera
         gmapView.animate(to: camera)
+        gmapView.isMyLocationEnabled = true
+        gmapView.settings.myLocationButton = true
 //        view.addSubview(mapView)
 
        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
         marker.position = coordinate
         marker.map = self.gmapView
 //        marker.title = "Sydneyaaa"
@@ -104,6 +108,17 @@ extension ViewController: CLLocationManagerDelegate{
         }
     }
 }
+
+extension ViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinateTap: CLLocationCoordinate2D) {
+        coordinates = coordinateTap
+        
+        marker.position = coordinates
+        marker.map = self.gmapView
+        longPressed = false
+    }
+}
+
 
 
 

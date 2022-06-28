@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7rz-s8-Y1W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lzy-6S-ixo">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -126,6 +126,33 @@ your journey</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x78-4t-BoK">
+                                <rect key="frame" x="50" y="750" width="240" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roR-yM-Q9Q">
+                                        <rect key="frame" x="8" y="10" width="224" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Pick This Location">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="cellTitle"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseBackgroundColor" red="0.35686274509999999" green="0.61568627450000002" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="seeRecom:" destination="75O-BA-OOt" eventType="touchUpInside" id="0Rz-C7-C7A"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35686274509999999" green="0.61568627450000002" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.35686274509999999" green="0.61568627450000002" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tuH-Q8-yKm">
                                 <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -152,6 +179,7 @@ your journey</string>
                     <connections>
                         <outlet property="gmapView" destination="nvE-9J-NmR" id="llV-Kq-9Tz"/>
                         <outlet property="navigationBar" destination="tuH-Q8-yKm" id="2za-cG-7fY"/>
+                        <outlet property="pickButton" destination="x78-4t-BoK" id="rvt-MQ-JXG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rV1-sA-daZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -161,7 +189,7 @@ your journey</string>
         <!--Recommended-->
         <scene sceneID="Brm-nT-wU9">
             <objects>
-                <viewController id="2oo-Wv-sKn" customClass="RecommendationViewController" customModule="Mobisee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecommendSB" id="2oo-Wv-sKn" customClass="RecommendationViewController" customModule="Mobisee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tsg-Dy-z2h">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -475,19 +503,39 @@ your journey</string>
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yd-Dx-1uB" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="88" width="390" height="756"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pjh-g2-Ckv">
+                                <rect key="frame" x="74" y="760" width="240" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eus-rH-aAT">
+                                        <rect key="frame" x="8" y="10" width="224" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="See Recommendation">
+                                            <color key="baseBackgroundColor" red="0.35686274509999999" green="0.61568627450000002" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="seeRecom:" destination="75O-BA-OOt" eventType="touchUpInside" id="y5A-a7-FCz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35686274509803922" green="0.61568627450980395" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.35686274509803922" green="0.61568627450980395" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8V-eB-RaO">
-                                <rect key="frame" x="141" y="600" width="108" height="49"/>
+                                <rect key="frame" x="141" y="397" width="108" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yd-Dx-1uB" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="88" width="390" height="424"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-Yv-Is6">
-                                <rect key="frame" x="51" y="657" width="288" height="106"/>
+                                <rect key="frame" x="51" y="369" width="288" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -518,12 +566,13 @@ your journey</string>
                         <constraints>
                             <constraint firstItem="6Yd-Dx-1uB" firstAttribute="top" secondItem="J8e-f1-a2c" secondAttribute="top" constant="88" id="8wJ-Zo-kzi"/>
                             <constraint firstItem="6Yd-Dx-1uB" firstAttribute="trailing" secondItem="dRn-nd-Nq3" secondAttribute="trailing" id="WFp-rM-RTA"/>
-                            <constraint firstAttribute="bottom" secondItem="6Yd-Dx-1uB" secondAttribute="bottom" constant="332" id="fQi-D3-D2C"/>
+                            <constraint firstAttribute="bottom" secondItem="6Yd-Dx-1uB" secondAttribute="bottom" id="fQi-D3-D2C"/>
                             <constraint firstItem="6Yd-Dx-1uB" firstAttribute="leading" secondItem="dRn-nd-Nq3" secondAttribute="leading" id="xNz-pe-aGm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eyp-Ib-zjH"/>
                     <connections>
+                        <outlet property="buttonRecommend" destination="pjh-g2-Ckv" id="VjJ-kh-cOi"/>
                         <outlet property="detailMapView" destination="6Yd-Dx-1uB" id="V19-ep-R2D"/>
                         <outlet property="totalDistance" destination="i8V-eB-RaO" id="1yw-nT-Okh"/>
                         <outlet property="totalTime" destination="cCh-Yv-Is6" id="rwm-ip-bam"/>
@@ -531,12 +580,12 @@ your journey</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdV-TV-ddF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-35" y="1557"/>
+            <point key="canvasLocation" x="-35.384615384615387" y="1556.8720379146919"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7AM-1F-U4C">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7rz-s8-Y1W" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationRecommendID" automaticallyAdjustsScrollViewInsets="NO" id="7rz-s8-Y1W" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="qib-a0-jxq">
                         <rect key="frame" x="0.0" y="44" width="390" height="96"/>
