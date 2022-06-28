@@ -18,7 +18,7 @@ class ViewController: UIViewController{
     let manager = CLLocationManager()
 //    var mapView = GMSMapView()
     var coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
-    var mapDidUpdate = false
+    var backButtonTap = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +66,7 @@ class ViewController: UIViewController{
     
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true)
+        backButtonTap = true
     }
 }
 
@@ -87,17 +88,16 @@ extension ViewController: CLLocationManagerDelegate{
        // Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = coordinate
+        marker.map = self.gmapView
 //        marker.title = "Sydneyaaa"
 //        marker.snippet = "Australia"
-        marker.map = self.gmapView
         
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailMapSB") as? DetailedMapController{
-            vc.origin = "\(coordinate.latitude),\(coordinate.longitude)"
-            print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
-        }
-        
-        if mapDidUpdate == true{
-            didTapPlace(with: coordinates, text: "check")
+        if backButtonTap == true{
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailMapSB") as? DetailedMapController{
+                vc.origin = "\(coordinate.latitude),\(coordinate.longitude)"
+                backButtonTap = false
+                print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
+            }
         }
         else{
             return

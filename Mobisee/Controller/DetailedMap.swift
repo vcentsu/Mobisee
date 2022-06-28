@@ -24,11 +24,11 @@ class DetailedMapController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        drawGoogleAPIDirection()
+        drawGoogleAPIDirection(pref: "less_walking")
     }
     
-    func drawGoogleAPIDirection(){
-        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=transit&key=\(apiKey)"
+    func drawGoogleAPIDirection(pref:String){
+        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=transit&transit_routing_preference=\(pref)&key=\(apiKey)"
         let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: encodedURL!)
         
@@ -37,7 +37,7 @@ class DetailedMapController: UIViewController {
                 print("Error")
             }else{
                 
-                DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+                DispatchQueue.main.async {
                     self.detailMapView.clear()
                     self.addSourceDestinationMarkers()
                 }
@@ -53,7 +53,7 @@ class DetailedMapController: UIViewController {
                         for route in routes {
                             let routeOverviewPolyline:NSDictionary = (route as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
                             let legs = (route as! NSDictionary).value(forKey: "legs")
-                            print(legs)
+//                            print(legs)
                             let steps = (legs as! NSArray).value(forKey: "steps")
                             let travelModes = (steps as! NSArray).value(forKey: "travel_mode")
 //                            print(travelModes)
