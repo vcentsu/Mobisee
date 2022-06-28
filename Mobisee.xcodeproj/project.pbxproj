@@ -26,6 +26,8 @@
 		D396223D2869F51A008563F4 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D396223C2869F51A008563F4 /* RecommendCell.swift */; };
 		D396223F2869F839008563F4 /* RecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D396223E2869F839008563F4 /* RecommendationViewController.swift */; };
 		D3962241286A29EA008563F4 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3962240286A29EA008563F4 /* Routes.swift */; };
+		D3962243286AF85D008563F4 /* RecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3962242286AF85D008563F4 /* RecommendationCell.swift */; };
+		D3962245286B1A18008563F4 /* RecommendHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3962244286B1A18008563F4 /* RecommendHeader.swift */; };
 		D3A9F11828619FB300080B8E /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A9F11728619FB300080B8E /* OnBoardViewController.swift */; };
 		D3D431D72858865700D78987 /* PlanJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D431D62858865700D78987 /* PlanJourneyViewController.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +55,8 @@
 		D396223C2869F51A008563F4 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
 		D396223E2869F839008563F4 /* RecommendationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationViewController.swift; sourceTree = "<group>"; };
 		D3962240286A29EA008563F4 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Routes.swift; path = Mobisee/Controller/Routes.swift; sourceTree = SOURCE_ROOT; };
+		D3962242286AF85D008563F4 /* RecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCell.swift; sourceTree = "<group>"; };
+		D3962244286B1A18008563F4 /* RecommendHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendHeader.swift; sourceTree = "<group>"; };
 		D3A9F11728619FB300080B8E /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
 		D3D431D62858865700D78987 /* PlanJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanJourneyViewController.swift; sourceTree = "<group>"; };
 		FDB0555E60A06A320CEFDA4D /* Pods-Mobisee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.debug.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 				D396223A2868B671008563F4 /* TimePickerViewController.swift */,
 				D396223C2869F51A008563F4 /* RecommendCell.swift */,
 				D396223E2869F839008563F4 /* RecommendationViewController.swift */,
+				D3962242286AF85D008563F4 /* RecommendationCell.swift */,
+				D3962244286B1A18008563F4 /* RecommendHeader.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,6 +287,8 @@
 				D3D431D72858865700D78987 /* PlanJourneyViewController.swift in Sources */,
 				D3507C472856593A007D0F61 /* AppDelegate.swift in Sources */,
 				D3962241286A29EA008563F4 /* Routes.swift in Sources */,
+				D3962243286AF85D008563F4 /* RecommendationCell.swift in Sources */,
+				D3962245286B1A18008563F4 /* RecommendHeader.swift in Sources */,
 				30E4697D2859A05E00C435CA /* ResultSearchViewController.swift in Sources */,
 				D3507C492856593A007D0F61 /* SceneDelegate.swift in Sources */,
 				D396223B2868B671008563F4 /* TimePickerViewController.swift in Sources */,
