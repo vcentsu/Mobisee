@@ -98,6 +98,7 @@ extension PlanJourneyViewController: UITableViewDelegate, UITableViewDataSource{
                     if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailMapSB") as? DetailedMapController{
                         vc.modalPresentationStyle = .fullScreen
                         vc.destination = "\(coordinate.latitude),\(coordinate.longitude)"
+                        vc.titleDest = place.name
                         self.present(vc, animated: true, completion: nil)
                     }
                 }
@@ -117,9 +118,7 @@ extension PlanJourneyViewController: UISearchResultsUpdating{
         else{
             return
         }
-        
-//        resultsVC.delegate = self
-        
+    
         GooglePlacesManager.shared.findPlaces(query: query) { result in
             switch result{
             case .success(let places):

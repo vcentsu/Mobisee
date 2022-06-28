@@ -19,6 +19,7 @@ class DetailedMapController: UIViewController {
     //hardcoded placeholder
     var origin = "\(-6.209960642473714),\(106.84987491861534)"
     var destination = "\(-6.17519),\(106.82710)"
+    var titleDest = "Point Destianation"
     let apiKey = "AIzaSyCtqBUAWmad-1yoHww05Z6XS7jKfZZWdXo"
     
     override func viewDidLoad() {
@@ -36,7 +37,7 @@ class DetailedMapController: UIViewController {
                 print("Error")
             }else{
                 
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now()+2) {
                     self.detailMapView.clear()
                     self.addSourceDestinationMarkers()
                 }
@@ -89,7 +90,7 @@ class DetailedMapController: UIViewController {
         let markerDestination = GMSMarker()
 //        markerSource.icon = UIImage(named: "PinPoint")
         markerDestination.position = stringToCoord(longLat: destination)
-        markerDestination.title = "Point B"
+        markerDestination.title = titleDest
         markerDestination.map = detailMapView
         
     }

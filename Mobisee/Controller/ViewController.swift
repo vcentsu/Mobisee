@@ -53,7 +53,6 @@ class ViewController: UIViewController{
              
             //add pin in map
             let camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 50.0)
-            
             print(coordinates)
             
             gmapView = GMSMapView.map(withFrame: view.frame, camera: camera)
@@ -88,11 +87,14 @@ extension ViewController: CLLocationManagerDelegate{
        // Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = coordinate
-        marker.title = "Sydneyaaa"
-        marker.snippet = "Australia"
+//        marker.title = "Sydneyaaa"
+//        marker.snippet = "Australia"
         marker.map = self.gmapView
         
-        print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailMapSB") as? DetailedMapController{
+            vc.origin = "\(coordinate.latitude),\(coordinate.longitude)"
+            print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
+        }
         
         if mapDidUpdate == true{
             didTapPlace(with: coordinates, text: "check")
@@ -102,6 +104,14 @@ extension ViewController: CLLocationManagerDelegate{
         }
     }
 }
+
+
+
+
+
+
+
+
 
 //    func updateSearchResults(for searchController: UISearchController) {
 //        guard let query = searchController.searchBar.text,
