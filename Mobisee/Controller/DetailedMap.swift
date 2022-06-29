@@ -12,6 +12,7 @@ import GooglePlaces
 import CoreLocation
 
 var minute = 0
+var minute2 = 0
 
 class DetailedMapController: UIViewController {
 
@@ -25,11 +26,13 @@ class DetailedMapController: UIViewController {
     var origin = "\(-6.209960642473714),\(106.84987491861534)"
     var destination = "\(-6.17519),\(106.82710)"
     var titleDest = "Point Destianation"
+    var mode = "transit"
     let apiKey = "AIzaSyCtqBUAWmad-1yoHww05Z6XS7jKfZZWdXo"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         drawGoogleAPIDirection(pref: "less_walking")
+        getTotalDistance2()
         buttonRecommend.layer.cornerRadius = 25
         
     }
@@ -43,7 +46,7 @@ class DetailedMapController: UIViewController {
     }
     
     func drawGoogleAPIDirection(pref:String){
-        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=walking&transit_routing_preference=\(pref)&key=\(apiKey)"
+        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving&transit_routing_preference=\(pref)&key=\(apiKey)"
         let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: encodedURL!)
         
@@ -113,7 +116,7 @@ class DetailedMapController: UIViewController {
     func getTotalDistance(){
         
         //can be acessed in api documentation
-        let urlString = "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=\(destination)&mode=walking&origins=\(origin)&key=\(apiKey)&language=en-EN&transit_routing_preference=less_walking"
+        let urlString = "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=\(destination)&mode=driving&origins=\(origin)&key=\(apiKey)&language=en-EN&transit_routing_preference=less_walking"
         let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: encodedURL!)
             
@@ -149,6 +152,41 @@ class DetailedMapController: UIViewController {
                         print("\(String(describing: self.totalDistance.text))")
                         self.totalTime.text = String(minute) + " Total Harga Rp." + String(fareValue)
                     }
+                    
+                }catch let error as NSError{
+                    print("error: \(error)")
+                }
+                
+            }
+        }).resume()
+    }
+    
+    func getTotalDistance2(){
+        
+        //can be acessed in api documentation
+        let urlString2 = "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=\(destination)&mode=\(mode)&origins=\(origin)&key=\(apiKey)&language=en-EN&transit_routing_preference=less_walking"
+        let encodedURL2 = urlString2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let url2 = URL(string: encodedURL2!)
+            
+        URLSession.shared.dataTask(with: url2!, completionHandler:{ (data, response, error) in
+            if(error != nil){
+                print("Error")
+            }else{
+                do{
+                    let json2 = try JSONSerialization.jsonObject(with: data!, options :.fragmentsAllowed) as! [String :AnyObject]
+                    let rows2 = json2["rows"] as! NSArray
+                    print(rows2)
+                    
+                    let dic2 = rows2[0] as! Dictionary<String, Any>
+                    let elements2 = dic2["elements"] as! NSArray
+                    let element2 = elements2[0] as! Dictionary<String, Any>
+                    
+                    guard let durationMin2 = element2["duration"] as? Dictionary<String, Any> else{
+                        print("Cant Find duration")
+                        return
+                    }
+                    minute2 = durationMin2["value"] as! Int
+                    
                     
                 }catch let error as NSError{
                     print("error: \(error)")

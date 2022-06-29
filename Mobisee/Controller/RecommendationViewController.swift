@@ -15,6 +15,7 @@ class RecommendationViewController: UIViewController {
     let OrangeForBackground = UIColor(red: 255, green: 243, blue: 229, alpha: 1)
     let GreenForHead = UIColor(red: 91, green: 157, blue: 87, alpha: 1)
     let GreenForBackground = UIColor(red: 239, green: 255, blue: 238, alpha: 1)
+    var today : DateComponents!
     
     //Data Control
     var recommendList = Route()
@@ -26,12 +27,53 @@ class RecommendationViewController: UIViewController {
         super.viewDidLoad()
         
         //hardcoded struct variable
+        today = getTodayString()
+        recommendList.recommend[0][0].timeStart = "\(today.hour ?? 0).\(today.minute ?? 0)"
+        recommendList.recommend[0][0].timeEnd = calcTime(duration: minute, timeStarted: today)
         recommendList.recommend[0][0].totalMin = (minute/60)
+        recommendList.recommend[1][0].totalMin = (minute2/60)
+        recommendList.recommend[1][0].timeStart = "\(today.hour ?? 0).\(today.minute ?? 0)"
+        recommendList.recommend[1][0].timeEnd = calcTime(duration: minute2, timeStarted: today)
         
 //        tableView.rowHeight = UITableView.automaticDimension
 //        tableView.estimatedRowHeight = 100
     }
+    
+    func getTodayString() -> DateComponents{
 
+        let date = Date()
+        let calender = Calendar.current
+        let components = calender.dateComponents([.hour,.minute], from: date)
+
+        let hours = components.hour
+        let minutes = components.minute
+
+        let timeToday = DateComponents(
+            day: 0,
+            hour: hours,
+            minute: minutes
+        )
+
+    return timeToday
+
+    }
+    
+    func calcTime(duration: Int, timeStarted: DateComponents) -> String{
+        var tempHour: Int?
+        var tempMin: Int?
+        let timeEndMin = (timeStarted.minute ?? 0) + (duration/60)
+        
+        if timeEndMin >= 60{
+            tempHour = (timeStarted.hour ?? 0) + 1
+            tempMin = timeEndMin - 60
+        }
+        else{
+            tempHour = timeStarted.hour
+            tempMin = timeEndMin
+        }
+        
+        return "\(tempHour ?? 0).\(tempMin ?? 0)"
+    }
 }
 
 extension RecommendationViewController: UICollectionViewDelegate, UICollectionViewDataSource {
