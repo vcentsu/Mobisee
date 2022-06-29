@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Home Page" translatesAutoresizingMaskIntoConstraints="NO" id="mJu-rz-dow">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <rect key="frame" x="0.0" y="-44" width="390" height="888"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOJ-96-lQj">
                                 <rect key="frame" x="65" y="110" width="260" height="132"/>
@@ -40,7 +40,7 @@ your journey</string>
                             <constraint firstItem="mJu-rz-dow" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="AfV-Yk-Gps"/>
                             <constraint firstItem="yOJ-96-lQj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="66" id="Czi-nt-WhN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mJu-rz-dow" secondAttribute="trailing" id="IBQ-xq-4c1"/>
-                            <constraint firstItem="mJu-rz-dow" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="KRf-Cf-dbb"/>
+                            <constraint firstItem="mJu-rz-dow" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-88" id="KRf-Cf-dbb"/>
                             <constraint firstItem="yOJ-96-lQj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ole-Pz-lKE"/>
                             <constraint firstItem="mJu-rz-dow" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fmF-Al-Cpc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mJu-rz-dow" secondAttribute="bottom" constant="-34" id="pUt-on-xbl"/>
