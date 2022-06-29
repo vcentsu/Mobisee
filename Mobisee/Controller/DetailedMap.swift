@@ -11,23 +11,42 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 
+var minute = 0
+var minute2 = 0
+
 class DetailedMapController: UIViewController {
 
+    @IBOutlet weak var buttonRecommend: UIView!
     @IBOutlet weak var detailMapView: GMSMapView!
+    @IBOutlet weak var navBarDetail: UINavigationBar!
     @IBOutlet weak var totalDistance: UILabel!
     @IBOutlet weak var totalTime: UILabel!
-    //hardcoded placeholder
+    
+    //hardcoded placeholder buat initialize aja sih
     var origin = "\(-6.209960642473714),\(106.84987491861534)"
     var destination = "\(-6.17519),\(106.82710)"
+    var titleDest = "Point Destianation"
+    var mode = "transit"
     let apiKey = "AIzaSyCtqBUAWmad-1yoHww05Z6XS7jKfZZWdXo"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        drawGoogleAPIDirection()
+        drawGoogleAPIDirection(pref: "less_walking")
+        getTotalDistance2()
+        buttonRecommend.layer.cornerRadius = 25
+        
     }
     
-    func drawGoogleAPIDirection(){
-        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=transit&key=\(apiKey)"
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navBarDetail.setBackgroundImage(UIImage(), for: .default)
+        navBarDetail.shadowImage = UIImage()
+        navBarDetail.isTranslucent = true
+    }
+    
+    func drawGoogleAPIDirection(pref:String){
+        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving&transit_routing_preference=\(pref)&key=\(apiKey)"
         let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: encodedURL!)
         
@@ -52,7 +71,7 @@ class DetailedMapController: UIViewController {
                         for route in routes {
                             let routeOverviewPolyline:NSDictionary = (route as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
                             let legs = (route as! NSDictionary).value(forKey: "legs")
-                            print(legs)
+//                            print(legs)
                             let steps = (legs as! NSArray).value(forKey: "steps")
                             let travelModes = (steps as! NSArray).value(forKey: "travel_mode")
 //                            print(travelModes)
@@ -89,7 +108,7 @@ class DetailedMapController: UIViewController {
         let markerDestination = GMSMarker()
 //        markerSource.icon = UIImage(named: "PinPoint")
         markerDestination.position = stringToCoord(longLat: destination)
-        markerDestination.title = "Point B"
+        markerDestination.title = titleDest
         markerDestination.map = detailMapView
         
     }
@@ -97,7 +116,7 @@ class DetailedMapController: UIViewController {
     func getTotalDistance(){
         
         //can be acessed in api documentation
-        let urlString = "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=\(destination)&mode=transit&origins=\(origin)&key=\(apiKey)&language=en-EN&transit_routing_preference=less_walking"
+        let urlString = "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=\(destination)&mode=driving&origins=\(origin)&key=\(apiKey)&language=en-EN&transit_routing_preference=less_walking"
         let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: encodedURL!)
             
@@ -114,19 +133,60 @@ class DetailedMapController: UIViewController {
                     let elements = dic["elements"] as! NSArray
                     let element = elements[0] as! Dictionary<String, Any>
                     
-                    let distanceKM = element["distance"] as! Dictionary<String, Any>
+                    guard let distanceKM = element["distance"] as? Dictionary<String, Any> else {
+                        print("Cant Find Path")
+                        return
+                    }
                     let kiloMeter = distanceKM["text"] as! String
                     let durationMin = element["duration"] as! Dictionary<String, Any>
-                    let minute = durationMin["text"] as! String
-                    let fareInRP = element["fare"] as! Dictionary<String, Any>
+                    minute = durationMin["value"] as! Int
+                    guard let fareInRP = element["fare"] as? Dictionary<String, Any> else{
+                        print("Cant find Fare")
+                        return
+                    }
                     let fareValue = fareInRP["value"] as! Int
                     
                     
                     DispatchQueue.main.async {
                         self.totalDistance.text = kiloMeter
                         print("\(String(describing: self.totalDistance.text))")
-                        self.totalTime.text = minute + " Total Harga Rp." + String(fareValue)
+                        self.totalTime.text = String(minute) + " Total Harga Rp." + String(fareValue)
                     }
+                    
+                }catch let error as NSError{
+                    print("error: \(error)")
+                }
+                
+            }
+        }).resume()
+    }
+    
+    func getTotalDistance2(){
+        
+        //can be acessed in api documentation
+        let urlString2 = "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=\(destination)&mode=\(mode)&origins=\(origin)&key=\(apiKey)&language=en-EN&transit_routing_preference=less_walking"
+        let encodedURL2 = urlString2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let url2 = URL(string: encodedURL2!)
+            
+        URLSession.shared.dataTask(with: url2!, completionHandler:{ (data, response, error) in
+            if(error != nil){
+                print("Error")
+            }else{
+                do{
+                    let json2 = try JSONSerialization.jsonObject(with: data!, options :.fragmentsAllowed) as! [String :AnyObject]
+                    let rows2 = json2["rows"] as! NSArray
+                    print(rows2)
+                    
+                    let dic2 = rows2[0] as! Dictionary<String, Any>
+                    let elements2 = dic2["elements"] as! NSArray
+                    let element2 = elements2[0] as! Dictionary<String, Any>
+                    
+                    guard let durationMin2 = element2["duration"] as? Dictionary<String, Any> else{
+                        print("Cant Find duration")
+                        return
+                    }
+                    minute2 = durationMin2["value"] as! Int
+                    
                     
                 }catch let error as NSError{
                     print("error: \(error)")
@@ -143,5 +203,31 @@ class DetailedMapController: UIViewController {
         let longitude = Double(coordArr[1])
         
         return CLLocationCoordinate2D(latitude: latitude ?? 0, longitude: longitude ?? 0)
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func seeRecom(_ sender: Any) {
+        
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "RecommendSB") as? RecommendationViewController{
+//             
+        }
+        
+        presentModal()
+    }
+    
+    private func presentModal(){
+        
+        let RecommendVC =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationRecommendID")
+        if let sheet = RecommendVC.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.preferredCornerRadius = 15
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = true
+            sheet.prefersGrabberVisible = true
+        }
+        
+        self.present(RecommendVC, animated: true, completion: nil)
     }
 }

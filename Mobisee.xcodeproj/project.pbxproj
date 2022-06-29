@@ -10,6 +10,7 @@
 		30420D4C28645A5D00F04070 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30420D4A28645A5D00F04070 /* ResultTableViewCell.swift */; };
 		30420D4D28645A5D00F04070 /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30420D4B28645A5D00F04070 /* ResultTableViewCell.xib */; };
 		3073ADAC2868AB9D00DC4D55 /* DetailedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3073ADAB2868AB9D00DC4D55 /* DetailedMap.swift */; };
+		307CA860286ABF470062F780 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307CA85F286ABF470062F780 /* LocationData.swift */; };
 		30E4697D2859A05E00C435CA /* ResultSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */; };
 		30E4697F2859E2BD00C435CA /* GooglePlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */; };
 		CB60440347612D60E4196D26 /* Pods_Mobisee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9B930C01E7ED1D1AA871CB /* Pods_Mobisee.framework */; };
@@ -36,6 +37,7 @@
 		30420D4A28645A5D00F04070 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		30420D4B28645A5D00F04070 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		3073ADAB2868AB9D00DC4D55 /* DetailedMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedMap.swift; sourceTree = "<group>"; };
+		307CA85F286ABF470062F780 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationData.swift; path = Mobisee/Controller/LocationData.swift; sourceTree = SOURCE_ROOT; };
 		30E4697C2859A05E00C435CA /* ResultSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSearchViewController.swift; sourceTree = "<group>"; };
 		30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GooglePlacesManager.swift; path = Mobisee/View/GooglePlacesManager.swift; sourceTree = SOURCE_ROOT; };
 		5DEB5B873E9D3AA8CDBD65AF /* Pods-Mobisee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobisee.release.xcconfig"; path = "Target Support Files/Pods-Mobisee/Pods-Mobisee.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				30E4697E2859E2BD00C435CA /* GooglePlacesManager.swift */,
+				307CA85F286ABF470062F780 /* LocationData.swift */,
 				D3962240286A29EA008563F4 /* Routes.swift */,
 			);
 			path = Model;
@@ -290,6 +293,7 @@
 				D3507C492856593A007D0F61 /* SceneDelegate.swift in Sources */,
 				D396223B2868B671008563F4 /* TimePickerViewController.swift in Sources */,
 				30E4697F2859E2BD00C435CA /* GooglePlacesManager.swift in Sources */,
+				307CA860286ABF470062F780 /* LocationData.swift in Sources */,
 				30420D4C28645A5D00F04070 /* ResultTableViewCell.swift in Sources */,
 				3073ADAC2868AB9D00DC4D55 /* DetailedMap.swift in Sources */,
 				D3A9F11828619FB300080B8E /* OnBoardViewController.swift in Sources */,
