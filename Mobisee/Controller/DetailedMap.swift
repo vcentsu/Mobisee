@@ -11,13 +11,17 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 
+var minute = 0
+
 class DetailedMapController: UIViewController {
 
     @IBOutlet weak var buttonRecommend: UIView!
     @IBOutlet weak var detailMapView: GMSMapView!
+    @IBOutlet weak var navBarDetail: UINavigationBar!
     @IBOutlet weak var totalDistance: UILabel!
     @IBOutlet weak var totalTime: UILabel!
-    //hardcoded placeholder
+    
+    //hardcoded placeholder buat initialize aja sih
     var origin = "\(-6.209960642473714),\(106.84987491861534)"
     var destination = "\(-6.17519),\(106.82710)"
     var titleDest = "Point Destianation"
@@ -27,10 +31,19 @@ class DetailedMapController: UIViewController {
         super.viewDidLoad()
         drawGoogleAPIDirection(pref: "less_walking")
         buttonRecommend.layer.cornerRadius = 25
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navBarDetail.setBackgroundImage(UIImage(), for: .default)
+        navBarDetail.shadowImage = UIImage()
+        navBarDetail.isTranslucent = true
     }
     
     func drawGoogleAPIDirection(pref:String){
-        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=transit&transit_routing_preference=\(pref)&key=\(apiKey)"
+        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=walking&transit_routing_preference=\(pref)&key=\(apiKey)"
         let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: encodedURL!)
         
@@ -100,7 +113,7 @@ class DetailedMapController: UIViewController {
     func getTotalDistance(){
         
         //can be acessed in api documentation
-        let urlString = "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=\(destination)&mode=transit&origins=\(origin)&key=\(apiKey)&language=en-EN&transit_routing_preference=less_walking"
+        let urlString = "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=\(destination)&mode=walking&origins=\(origin)&key=\(apiKey)&language=en-EN&transit_routing_preference=less_walking"
         let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: encodedURL!)
             
@@ -117,18 +130,24 @@ class DetailedMapController: UIViewController {
                     let elements = dic["elements"] as! NSArray
                     let element = elements[0] as! Dictionary<String, Any>
                     
-                    let distanceKM = element["distance"] as! Dictionary<String, Any>
+                    guard let distanceKM = element["distance"] as? Dictionary<String, Any> else {
+                        print("Cant Find Path")
+                        return
+                    }
                     let kiloMeter = distanceKM["text"] as! String
                     let durationMin = element["duration"] as! Dictionary<String, Any>
-                    let minute = durationMin["text"] as! String
-                    let fareInRP = element["fare"] as! Dictionary<String, Any>
+                    minute = durationMin["value"] as! Int
+                    guard let fareInRP = element["fare"] as? Dictionary<String, Any> else{
+                        print("Cant find Fare")
+                        return
+                    }
                     let fareValue = fareInRP["value"] as! Int
                     
                     
                     DispatchQueue.main.async {
                         self.totalDistance.text = kiloMeter
                         print("\(String(describing: self.totalDistance.text))")
-                        self.totalTime.text = minute + " Total Harga Rp." + String(fareValue)
+                        self.totalTime.text = String(minute) + " Total Harga Rp." + String(fareValue)
                     }
                     
                 }catch let error as NSError{
@@ -153,10 +172,16 @@ class DetailedMapController: UIViewController {
     }
     
     @IBAction func seeRecom(_ sender: Any) {
+        
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "RecommendSB") as? RecommendationViewController{
+//             
+        }
+        
         presentModal()
     }
     
     private func presentModal(){
+        
         let RecommendVC =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationRecommendID")
         if let sheet = RecommendVC.sheetPresentationController {
             sheet.detents = [.medium(), .large()]

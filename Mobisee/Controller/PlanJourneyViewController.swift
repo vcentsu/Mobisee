@@ -19,19 +19,27 @@ class PlanJourneyViewController: UIViewController {
     @IBOutlet weak var arrivalTimeBtn: UIButton!
     
     var selectedTime: String = ""
+    var coordinateLive: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     
     private var places: [Place] = []
     weak var delegate: PlanJourneyDelegate?
     let searchVC = UISearchController()
+    let manager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //table
+        //for location
+        manager.delegate = self
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+        manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         
+        //table
         resultTable.delegate = self
         resultTable.dataSource = self
         resultTable.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
         //search bar
         searchVC.searchBar.tag = 1
         searchVC.searchResultsUpdater = self
@@ -98,6 +106,7 @@ extension PlanJourneyViewController: UITableViewDelegate, UITableViewDataSource{
                     if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailMapSB") as? DetailedMapController{
                         vc.modalPresentationStyle = .fullScreen
                         vc.destination = "\(coordinate.latitude),\(coordinate.longitude)"
+                        vc.origin = "\(self.coordinateLive.latitude),\(self.coordinateLive.longitude)"
                         vc.titleDest = place.name
                         self.present(vc, animated: true, completion: nil)
                     }
@@ -143,6 +152,18 @@ extension PlanJourneyViewController: UISearchResultsUpdating{
         resultTable.reloadData()
     }
 }
+
+extension PlanJourneyViewController: CLLocationManagerDelegate{
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else {
+            return
+        }
+        
+        coordinateLive = location.coordinate
+    }
+}
+
 
 
 

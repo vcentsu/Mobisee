@@ -19,7 +19,8 @@ class ViewController: UIViewController{
     let marker = GMSMarker()
     let manager = CLLocationManager()
 //    var mapView = GMSMapView()
-    var coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+    var coordinateLive: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+    var coordinateTap: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     var backButtonTap = false
     var longPressed = false
     
@@ -30,6 +31,11 @@ class ViewController: UIViewController{
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         self.gmapView.delegate = self
+        
+        let camera = GMSCameraPosition.camera(withLatitude: coordinateLive.latitude, longitude: coordinateLive.longitude, zoom: 16.0)
+        gmapView.animate(toLocation: coordinateLive)
+        gmapView.camera = camera
+        gmapView.animate(to: camera)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,23 +54,15 @@ class ViewController: UIViewController{
             navigationBar.shadowImage = nil
     }
     
-    //extension ViewController: PlanJourneyDelegate{
-        func didTapPlace(with coordinates: CLLocationCoordinate2D, text: String) {
-            
-            //remove all pins in map
-            self.gmapView.clear()
-             
-            //add pin in map
-            let camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 50.0)
-            print(coordinates)
-            
-            gmapView = GMSMapView.map(withFrame: view.frame, camera: camera)
-            gmapView.frame = view.bounds
-//            view.addSubview(mapView)
-            marker.position = coordinates
-            marker.map = gmapView
-        
+    
+    @IBAction func pickLocation(_ sender: Any) {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailMapSB") as? DetailedMapController{
+            vc.modalPresentationStyle = .fullScreen
+            vc.destination = "\(coordinateTap.latitude),\(coordinateTap.longitude)"
+            vc.origin = "\(coordinateLive.latitude),\(coordinateLive.longitude)"
+            self.present(vc, animated: true, completion: nil)
         }
+    }
     
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true)
@@ -81,41 +79,25 @@ extension ViewController: CLLocationManagerDelegate{
         }
         
         // Do any additional setup after loading the view.
-        let coordinate = location.coordinate
-        let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude, longitude: coordinate.longitude, zoom: 16.0)
-        gmapView.animate(toLocation: coordinate)
-        gmapView.camera = camera
-        gmapView.animate(to: camera)
+        coordinateLive = location.coordinate
         gmapView.isMyLocationEnabled = true
         gmapView.settings.myLocationButton = true
-//        view.addSubview(mapView)
-
-       // Creates a marker in the center of the map.
-        marker.position = coordinate
-        marker.map = self.gmapView
-//        marker.title = "Sydneyaaa"
-//        marker.snippet = "Australia"
         
-        if backButtonTap == true{
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailMapSB") as? DetailedMapController{
-                vc.origin = "\(coordinate.latitude),\(coordinate.longitude)"
-                backButtonTap = false
-                print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
-            }
-        }
-        else{
-            return
-        }
+        print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
     }
 }
 
 extension ViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinateTap: CLLocationCoordinate2D) {
-        coordinates = coordinateTap
         
-        marker.position = coordinates
+        self.coordinateTap = coordinateTap
+        marker.position = coordinateTap
         marker.map = self.gmapView
         longPressed = false
+        
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailMapSB") as? DetailedMapController{
+//            vc.destination = "\(coordinateTap.latitude),\(coordinateTap.longitude)"
+        }
     }
 }
 

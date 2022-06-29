@@ -7,6 +7,8 @@
 
 import UIKit
 
+var totalTimePass = 100
+
 class RecommendationViewController: UIViewController {
     
     let OrangeForHead = UIColor(red: 255, green: 171, blue: 73, alpha: 1)
@@ -16,15 +18,18 @@ class RecommendationViewController: UIViewController {
     
     //Data Control
     var recommendList = Route()
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     //@IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //hardcoded struct variable
+        recommendList.recommend[0][0].totalMin = (minute/60)
+        
 //        tableView.rowHeight = UITableView.automaticDimension
 //        tableView.estimatedRowHeight = 100
-        
     }
 
 }
@@ -72,7 +77,7 @@ extension RecommendationViewController: UICollectionViewDelegate, UICollectionVi
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 
 }
